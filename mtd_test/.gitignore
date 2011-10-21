@@ -1,0 +1,15 @@
+pom.xml
+*jar
+/lib/
+/classes/
+.svn
+*~
+*#
+.#*
+*.xml
+*.orig
+*Debug*
+*Release*
+*.sdf
+*.suo
+*.vcxproj.user

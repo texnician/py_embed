@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtd_test", "mtd_test.vcxproj", "{3038D09A-AEF7-4BE1-84C0-78F429A97180}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtd_lib", "..\mtd_lib\mtd_lib.vcxproj", "{EE927036-DD3F-4FCF-88A3-5F276A7C069C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Debug|Win32.Build.0 = Debug|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Release|Win32.ActiveCfg = Release|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Release|Win32.Build.0 = Release|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Debug|Win32.Build.0 = Debug|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Release|Win32.ActiveCfg = Release|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
