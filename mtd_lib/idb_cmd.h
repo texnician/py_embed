@@ -26,7 +26,10 @@ class HWDBResult
 {
 public:
     HWDBResult();
-
+    
+    virtual ~HWDBResult()
+        {}
+    
     static const HWDBResult NoError;
     
     bool HasError() const;
@@ -47,6 +50,37 @@ private:
     int result_;
     typedef std::map<std::string, HWDBResult> SubResultMap;
     SubResultMap sub_result_map_;
+};
+
+class HWDBRecordSet : public HWDBResult
+{
+public:
+    HWDBRecordSet();
+    
+    static const HWDBRecordSet Empty;
+
+    bool IsEmpty() const;
+
+    HWDBRecordSet& SetRecordSet(const RecordSetPtr& rs);
+
+#if defined(_CXX0X_)    
+    HWDBRecordSet& SetRecordSet(RecordSetPtr&& rs);
+#endif
+    
+    RecordSetPtr GetRecordSet() const;
+
+    HWDBRecordSet& SetSubRecordSet(const char* task, const HWDBRecordSet& rs);
+
+#if defined(_CXX0X_)
+    HWDBRecordSet& SetSubRecordSet(const char* task, HWDBRecordSet&& rs);
+#endif
+
+    const HWDBRecordSet& GetSubRecordSet(const char* task) const;
+    
+private:
+    RecordSetPtr rs_;
+    typedef std::map<std::string, HWDBRecordSet> SubRecordSetMap;
+    SubRecordSetMap sub_rs_map_;
 };
 
 class HWSQLCmd

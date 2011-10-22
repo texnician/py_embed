@@ -4,6 +4,8 @@ const HWSQLCmd HWSQLCmd::Null = HWSQLCmd(NULL);
 
 const HWDBResult HWDBResult::NoError = HWDBResult();
 
+const HWDBRecordSet HWDBRecordSet::Empty = HWDBRecordSet();
+
 HWDBResult::HWDBResult()
     : has_error_(false), result_(0)
 {}
@@ -53,6 +55,68 @@ int HWDBResult::GetResult() const
     return result_;
 }
 
+HWDBRecordSet::HWDBRecordSet()
+    : rs_(NULL)
+{}
+
+bool HWDBRecordSet::IsEmpty() const
+{
+    if (rs_ == NULL) {
+        bool is_all_sub_empty = true;
+        for (SubRecordSetMap::const_iterator it = sub_rs_map_.begin();
+             it != sub_rs_map_.end(); ++it)
+        {
+            if (!it->second.IsEmpty()) {
+                is_all_sub_empty = false;
+                break;
+            }
+        }
+        return is_all_sub_empty;
+    }
+    else {
+        return false;
+    }
+}
+
+HWDBRecordSet& HWDBRecordSet::SetRecordSet(const RecordSetPtr& rs)
+{
+    rs_ = rs;
+    return *this;
+}
+
+#if defined(_CXX0X_)    
+HWDBRecordSet& HWDBRecordSet::SetRecordSet(RecordSetPtr&& rs)
+{
+    rs_ = std::move(rs);
+    return *this;
+}
+#endif
+
+RecordSetPtr HWDBRecordSet::GetRecordSet() const
+{
+    return rs_;
+}
+
+HWDBRecordSet& HWDBRecordSet::SetSubRecordSet(const char* task, const HWDBRecordSet& rs)
+{
+    sub_rs_map_[task] = rs;
+    return *this;
+}
+
+#if defined(_CXX0X_)
+HWDBRecordSet& HWDBRecordSet::SetSubRecordSet(const char* task, HWDBRecordSet&& rs)
+{
+    sub_rs_map_[task] = std::move(rs);
+    return *this;
+}
+#endif
+
+const HWDBRecordSet& HWDBRecordSet::GetSubRecordSet(const char* task) const
+{
+    SubRecordSetMap::const_iterator it = sub_rs_map_.find(task);
+    return it != sub_rs_map_.end() ? it->second : Empty;
+}
+
 HWSQLCmd::HWSQLCmd(const char* sql)
     : sql_(sql)
 {}
@@ -96,8 +160,7 @@ HWDBResult HWSQLCmd::Execute(IHWDBEnv* p_env) const
             for(SubMap::const_iterator it = sub_map_.begin();
                 it != sub_map_.end(); ++it)
             {
-                result.SetSubResult(it->first.c_str(), it->second.Execute(p_env));
-                if (result.HasError()) {
+                if (result.SetSubResult(it->first.c_str(), it->second.Execute(p_env)).HasError()) {
                     return result;
                 }
             }
