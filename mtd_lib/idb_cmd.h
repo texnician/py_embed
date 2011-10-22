@@ -27,20 +27,25 @@ class HWDBResult
 public:
     HWDBResult();
 
+    static const HWDBResult NoError;
+    
     bool HasError() const;
 
-    HWDBResult& SetError();
-    
     HWDBResult& SetResult(int result);
-    
-    HWDBResult& SetSubResult(const char* task, int result);
 
-    int GetSubResult(const char* task) const;
+    int GetResult() const;
+    
+    HWDBResult& SetSubResult(const char* task, const HWDBResult& result);
+
+#if defined(_CXX0X_)
+    HWDBResult& SetSubResult(const char* task, HWDBResult&& result);
+#endif
+    const HWDBResult& GetSubResult(const char* task) const;
     
 private:
     bool has_error_;
     int result_;
-    typedef std::map<std::string, int> SubResultMap;
+    typedef std::map<std::string, HWDBResult> SubResultMap;
     SubResultMap sub_result_map_;
 };
 
@@ -66,7 +71,7 @@ public:
 
     HWSQLCmd& GetSubCmd(const char* task);
 
-    int Execute(IHWDBEnv* p_env) const;
+    HWDBResult Execute(IHWDBEnv* p_env) const;
     
     RecordSetPtr ExecuteRs(IHWDBEnv* db_env) const;
 
