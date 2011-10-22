@@ -204,3 +204,37 @@ HWSQLCmd& HWSQLCmd::Reset()
     sub_map_.clear();
     return *this;
 }
+
+std::string HWSQLCmd::DumpSQL(const HWDBResult& result, const char* name, int level) const
+{
+    #define MAX_SQL_LEN 2048
+    #define SNPRINTF _snprintf
+
+    int idx = 0;
+    char buf[MAX_SQL_LEN];
+
+    // If first level, print header
+    if (level == 0) {
+        idx = SNPRINTF(buf, MAX_SQL_LEN, "\n======== HWSQLCmd Dump ==========\n");
+    }
+    // print indent
+    for (int i = 0; i < level*2; ++i) {
+        idx = SNPRINTF(buf+idx, MAX_SQL_LEN-idx, "%c", ' ');
+    }
+    // print conent
+    idx = SNPRINTF(buf+idx, MAX_SQL_LEN-idx, "%s:%d: %s\n",
+                   name == NULL ? "root" : name, result.GetResult(), sql_.c_str());
+    // print sub cmds
+    for (SubMap::const_iterator it = sub_map_.begin(); it != sub_map_.end(); ++it) {
+        idx = SNPRINTF(buf+idx, MAX_SQL_LEN-idx, "%s",
+                       it->second.DumpSQL(result.GetSubResult(it->first.c_str()),
+                                          it->first.c_str(),
+                                          level+1).c_str());
+    }
+    // If first level, print foot
+    if (level == 0) {
+        idx = SNPRINTF(buf+idx, MAX_SQL_LEN-idx, "%s",
+                       "==== HWSQLCmd Dump ends here ====\n");
+    }
+    return buf;
+}

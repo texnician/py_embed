@@ -44,7 +44,7 @@ public:
     HWDBResult& SetSubResult(const char* task, HWDBResult&& result);
 #endif
     const HWDBResult& GetSubResult(const char* task) const;
-    
+
 private:
     bool has_error_;
     int result_;
@@ -113,6 +113,9 @@ public:
     
     HWDBRecordSet ExecuteRs(IHWDBEnv* db_env) const;
 
+    std::string DumpSQL(const HWDBResult& result = HWDBResult::NoError,
+                        const char* name = NULL, int level = 0) const;
+    
 private:
     std::string sql_;
     typedef std::map<std::string, HWSQLCmd> SubMap;
