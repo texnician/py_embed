@@ -18,9 +18,15 @@
     <ClInclude Include="mtd_lib.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="idb_cmd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mtd_lib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="idb_cmd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

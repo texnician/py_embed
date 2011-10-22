@@ -64,9 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="idb_cmd.h" />
     <ClInclude Include="mtd_lib.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="idb_cmd.cpp" />
     <ClCompile Include="mtd_lib.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
