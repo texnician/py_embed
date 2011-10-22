@@ -191,3 +191,10 @@ HWDBRecordSet HWSQLCmd::ExecuteRs(IHWDBEnv* p_env) const
         return HWDBRecordSet();
     }
 }
+
+HWSQLCmd& HWSQLCmd::Reset()
+{
+    sql_ = (char*)NULL;
+    sub_map_.clear();
+    return *this;
+}
