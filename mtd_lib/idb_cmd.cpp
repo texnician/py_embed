@@ -99,14 +99,16 @@ RecordSetPtr HWDBRecordSet::GetRecordSet() const
 
 HWDBRecordSet& HWDBRecordSet::SetSubRecordSet(const char* task, const HWDBRecordSet& rs)
 {
-    sub_rs_map_[task] = rs;
+    if (!SetSubResult(task, rs).HasError())
+        sub_rs_map_[task] = rs;
     return *this;
 }
 
 #if defined(_CXX0X_)
 HWDBRecordSet& HWDBRecordSet::SetSubRecordSet(const char* task, HWDBRecordSet&& rs)
 {
-    sub_rs_map_[task] = std::move(rs);
+    if (!SetSubResult(task, std::move(rs)).HasError())
+        sub_rs_map_[task] = std::move(rs);
     return *this;
 }
 #endif
@@ -157,7 +159,7 @@ HWDBResult HWSQLCmd::Execute(IHWDBEnv* p_env) const
     if (!IsNull()) {
         result.SetResult(p_env->Execute(sql_.c_str()));
         if (!result.HasError()) {
-            for(SubMap::const_iterator it = sub_map_.begin();
+            for (SubMap::const_iterator it = sub_map_.begin();
                 it != sub_map_.end(); ++it)
             {
                 if (result.SetSubResult(it->first.c_str(), it->second.Execute(p_env)).HasError()) {
@@ -169,12 +171,23 @@ HWDBResult HWSQLCmd::Execute(IHWDBEnv* p_env) const
     return result;
 }
 
-RecordSetPtr HWSQLCmd::ExecuteRs(IHWDBEnv* p_env) const
+HWDBRecordSet HWSQLCmd::ExecuteRs(IHWDBEnv* p_env) const
 {
     if (!IsNull()) {
-        return p_env->ExecuteRs(sql_.c_str());
+        RecordSetPtr p_rs;
+        int result = p_env->ExecuteRs(sql_.c_str(), p_rs);
+        HWDBRecordSet rs;
+        if (!rs.SetRecordSet(p_rs).SetResult(result).HasError()) {
+            for (SubMap::const_iterator it = sub_map_.begin();
+                 it != sub_map_.end(); ++it) {
+                if (rs.SetSubRecordSet(it->first.c_str(), it->second.ExecuteRs(p_env)).HasError()) {
+                    return rs;
+                }
+            }
+        }
+        return rs;
     }
     else {
-        return NULL;
+        return HWDBRecordSet();
     }
 }

@@ -19,7 +19,7 @@ public:
 
     virtual int Execute(const char* ) const = 0;
     
-    virtual RecordSetPtr ExecuteRs(const char*) const = 0;
+    virtual int ExecuteRs(const char*, RecordSetPtr& rs) const = 0;
 };
 
 class HWDBResult
@@ -107,7 +107,7 @@ public:
 
     HWDBResult Execute(IHWDBEnv* p_env) const;
     
-    RecordSetPtr ExecuteRs(IHWDBEnv* db_env) const;
+    HWDBRecordSet ExecuteRs(IHWDBEnv* db_env) const;
 
 private:
     std::string sql_;
