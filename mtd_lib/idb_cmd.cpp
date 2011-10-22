@@ -128,6 +128,12 @@ bool HWSQLCmd::IsNull() const
     return sql_.empty();
 }
 
+HWSQLCmd& HWSQLCmd::SetSQL(const char* sql)
+{
+    sql_ = sql;
+    return *this;
+}
+
 HWSQLCmd& HWSQLCmd::SetSubCmd(const char* task, const HWSQLCmd& other)
 {
     sub_map_[task] = other;

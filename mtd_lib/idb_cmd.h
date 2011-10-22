@@ -96,7 +96,9 @@ public:
     bool IsNull() const;
 
     HWSQLCmd& Reset();
-    
+
+    HWSQLCmd& SetSQL(const char* sql);
+
     HWSQLCmd& SetSubCmd(const char* task, const HWSQLCmd& other);
 
 #if defined(_CXX0X_)    
