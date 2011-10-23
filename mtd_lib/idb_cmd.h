@@ -25,9 +25,9 @@ public:
 class IHWDBCursor
 {
 public:
-	virtual ~IHWDBCursor() {};
+    virtual ~IHWDBCursor() {};
 
-	virtual int GetRecordCount(void) = 0;
+    virtual int GetRecordCount(void) = 0;
     
     virtual int GetFieldCount(void) = 0;
     
@@ -37,9 +37,9 @@ public:
     
     virtual int GetFieldLength(int index) = 0;
 
-	virtual const char* GetFieldValueByName(const char *name) = 0;
+    virtual const char* GetFieldValueByName(const char *name) = 0;
 
-	virtual int GetFieldLengthByName(const char *name) = 0;
+    virtual int GetFieldLengthByName(const char *name) = 0;
 };
 
 class HWDBResult
