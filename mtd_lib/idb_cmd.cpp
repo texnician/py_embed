@@ -56,12 +56,12 @@ int HWDBResult::GetResult() const
 }
 
 HWDBRecordSet::HWDBRecordSet()
-    : rs_(NULL)
+    : cursor_(NULL)
 {}
 
 bool HWDBRecordSet::IsEmpty() const
 {
-    if (rs_ == NULL) {
+    if (cursor_ == NULL) {
         bool is_all_sub_empty = true;
         for (SubRecordSetMap::const_iterator it = sub_rs_map_.begin();
              it != sub_rs_map_.end(); ++it)
@@ -78,23 +78,23 @@ bool HWDBRecordSet::IsEmpty() const
     }
 }
 
-HWDBRecordSet& HWDBRecordSet::SetRecordSet(const RecordSetPtr& rs)
+HWDBRecordSet& HWDBRecordSet::SetCursor(const IHWDBCursorPtr& cursor)
 {
-    rs_ = rs;
+    cursor_ = cursor;
     return *this;
 }
 
 #if defined(_CXX0X_)    
-HWDBRecordSet& HWDBRecordSet::SetRecordSet(RecordSetPtr&& rs)
+HWDBRecordSet& HWDBRecordSet::SetCursor(IHWDBCursorPtr&& cursor)
 {
-    rs_ = std::move(rs);
+    cursor_ = std::move(cursor);
     return *this;
 }
 #endif
 
-RecordSetPtr HWDBRecordSet::GetRecordSet() const
+IHWDBCursorPtr HWDBRecordSet::GetCursor() const
 {
-    return rs_;
+    return cursor_;
 }
 
 HWDBRecordSet& HWDBRecordSet::SetSubRecordSet(const char* task, const HWDBRecordSet& rs)
@@ -180,10 +180,10 @@ HWDBResult HWSQLCmd::Execute(IHWDBEnv* p_env) const
 HWDBRecordSet HWSQLCmd::ExecuteRs(IHWDBEnv* p_env) const
 {
     if (!IsNull()) {
-        RecordSetPtr p_rs;
-        int result = p_env->ExecuteRs(sql_.c_str(), p_rs);
+        IHWDBCursorPtr p_cursor;
+        int result = p_env->ExecuteRs(sql_.c_str(), p_cursor);
         HWDBRecordSet rs;
-        if (!rs.SetRecordSet(p_rs).SetResult(result).HasError()) {
+        if (!rs.SetCursor(p_cursor).SetResult(result).HasError()) {
             for (SubMap::const_iterator it = sub_map_.begin();
                  it != sub_map_.end(); ++it) {
                 if (rs.SetSubRecordSet(it->first.c_str(), it->second.ExecuteRs(p_env)).HasError()) {

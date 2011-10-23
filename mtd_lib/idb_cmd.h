@@ -8,9 +8,9 @@
 #define _CXX0X_ 1
 #define SHARED_PTR std::shared_ptr
 
-typedef std::string RecordSet;
+class IHWDBCursor;
 
-typedef SHARED_PTR<RecordSet> RecordSetPtr;
+typedef SHARED_PTR<IHWDBCursor> IHWDBCursorPtr;
 
 class IHWDBEnv
 {
@@ -19,7 +19,27 @@ public:
 
     virtual int Execute(const char* ) const = 0;
     
-    virtual int ExecuteRs(const char*, RecordSetPtr& rs) const = 0;
+    virtual int ExecuteRs(const char*, IHWDBCursorPtr& rs) const = 0;
+};
+
+class IHWDBCursor
+{
+public:
+	virtual ~IHWDBCursor() {};
+
+	virtual int GetRecordCount(void) = 0;
+    
+    virtual int GetFieldCount(void) = 0;
+    
+    virtual bool GetRecord(void) = 0;
+    
+    virtual const char * GetFieldValue(int index) = 0;
+    
+    virtual int GetFieldLength(int index) = 0;
+
+	virtual const char* GetFieldValueByName(const char *name) = 0;
+
+	virtual int GetFieldLengthByName(const char *name) = 0;
 };
 
 class HWDBResult
@@ -61,13 +81,13 @@ public:
 
     bool IsEmpty() const;
 
-    HWDBRecordSet& SetRecordSet(const RecordSetPtr& rs);
+    HWDBRecordSet& SetCursor(const IHWDBCursorPtr& rs);
 
 #if defined(_CXX0X_)    
-    HWDBRecordSet& SetRecordSet(RecordSetPtr&& rs);
+    HWDBRecordSet& SetCursor(IHWDBCursorPtr&& rs);
 #endif
     
-    RecordSetPtr GetRecordSet() const;
+    IHWDBCursorPtr GetCursor() const;
 
     HWDBRecordSet& SetSubRecordSet(const char* task, const HWDBRecordSet& rs);
 
@@ -78,7 +98,7 @@ public:
     const HWDBRecordSet& GetSubRecordSet(const char* task) const;
     
 private:
-    RecordSetPtr rs_;
+    IHWDBCursorPtr cursor_;
     typedef std::map<std::string, HWDBRecordSet> SubRecordSetMap;
     SubRecordSetMap sub_rs_map_;
 };
