@@ -12,6 +12,9 @@
 #include <vector>
 #include <string>
 
+#if defined(__cplusplus)
+#endif
+
 std::vector<std::string> MTD_API GetStringVec();
 
 const std::vector<std::string> MTD_API GetConstStringVec();
@@ -20,4 +23,6 @@ std::vector<int> MTD_API GetIntVec();
 
 std::vector<int> MTD_API GetConstIntVec();
 
+#if defined(__cplusplus)
+#endif
 #endif 

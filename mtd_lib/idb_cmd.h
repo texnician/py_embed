@@ -5,7 +5,9 @@
 #include <memory>
 #include <map>
 
+#if !defined(_SWIG_)
 #define _CXX0X_ 1
+#endif
 #define SHARED_PTR std::shared_ptr
 
 class IHWDBCursor;

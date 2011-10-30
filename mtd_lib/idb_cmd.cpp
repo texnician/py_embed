@@ -120,7 +120,7 @@ const HWDBRecordSet& HWDBRecordSet::GetSubRecordSet(const char* task) const
 }
 
 HWSQLCmd::HWSQLCmd(const char* sql)
-    : sql_(sql)
+    : sql_(sql == NULL ? "" : sql)
 {}
 
 bool HWSQLCmd::IsNull() const

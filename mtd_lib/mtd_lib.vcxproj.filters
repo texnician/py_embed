@@ -29,5 +29,13 @@
     <ClCompile Include="idb_cmd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="py_interface_wrap.cxx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="mtd_lib.i">
+      <Filter>头文件</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
