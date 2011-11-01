@@ -24,5 +24,12 @@ namespace std {
 
 %feature("director") ScriptSkillCallback;
 
+%feature("director:except") {
+    if ($error != NULL) {
+        PyErr_Print();
+        throw Swig::DirectorMethodException();
+    }
+}
+
 %include "mtd_lib.h"
 %include "idb_cmd.h"

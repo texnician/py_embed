@@ -76,6 +76,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	d.data.push_back(2);
 	d.data.push_back(3);
 	auto result = g_caller->Call(d);
+    g_caller->CallVoid();
 
     Py_DECREF(pName);
     Py_DECREF(pHwName);

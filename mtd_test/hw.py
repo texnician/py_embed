@@ -14,9 +14,12 @@ class PyCallback(ScriptSkillCallback):
         print(l)
         print(data.data)
         result = SkillResult()
-        result.id = 10
+        result.id = 'error'
         result.result = "python result"
         return result
+
+    def DoVoid(self):
+        print('DoVoid')
         
 def TestCallback():
     print('TestCallback')

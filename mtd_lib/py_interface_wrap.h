@@ -21,6 +21,7 @@ public:
     SwigDirector_ScriptSkillCallback(PyObject *self);
     virtual ~SwigDirector_ScriptSkillCallback();
     virtual SkillResult DoSkill(SkillData &data);
+    virtual void DoVoid();
 
 
 /* Internal Director utilities */
@@ -54,7 +55,7 @@ private:
       return method;
     }
 private:
-    mutable swig::SwigVar_PyObject vtable[1];
+    mutable swig::SwigVar_PyObject vtable[2];
 #endif
 
 };

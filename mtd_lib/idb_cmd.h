@@ -166,6 +166,8 @@ public:
     {}
 
     virtual SkillResult DoSkill(SkillData& data) = 0;
+
+	virtual void DoVoid() = 0;
 };
 
 class MTD_API ScriptSkillCallback : public ISkillCallback
@@ -194,6 +196,10 @@ public:
     {
         if (cb_) return cb_->DoSkill(data);
 		return SkillResult();
+    }
+    void CallVoid()
+    {
+        if (cb_) cb_->DoVoid();
     }
     
 private:

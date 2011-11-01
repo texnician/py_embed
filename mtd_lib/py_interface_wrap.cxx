@@ -5798,8 +5798,11 @@ SkillResult SwigDirector_ScriptSkillCallback::DoSkill(SkillData &data) {
 #endif
   if (!result) {
     PyObject *error = PyErr_Occurred();
-    if (error) {
-      Swig::DirectorMethodException::raise("Error detected when calling 'ScriptSkillCallback.DoSkill'");
+    {
+      if (error != NULL) {
+        PyErr_Print();
+        throw Swig::DirectorMethodException();
+      }
     }
   }
   swig_res = SWIG_ConvertPtr(result,&swig_argp,SWIGTYPE_p_SkillResult,  0  | 0);
@@ -5809,6 +5812,34 @@ SkillResult SwigDirector_ScriptSkillCallback::DoSkill(SkillData &data) {
   c_result = *(reinterpret_cast< SkillResult * >(swig_argp));
   if (SWIG_IsNewObj(swig_res)) delete reinterpret_cast< SkillResult * >(swig_argp);
   return (SkillResult) c_result;
+}
+
+
+void SwigDirector_ScriptSkillCallback::DoVoid() {
+  PyObject *self = NULL;
+  (void)self;
+  if (!swig_get_self()) {
+    Swig::DirectorException::raise("'self' uninitialized, maybe you forgot to call ScriptSkillCallback.__init__.");
+  }
+#if defined(SWIG_PYTHON_DIRECTOR_VTABLE)
+  const size_t swig_method_index = 1;
+  const char * const swig_method_name = "DoVoid";
+  PyObject* method = swig_get_method(swig_method_index, swig_method_name);
+  swig::SwigVar_PyObject args = PyTuple_New(0);
+  swig::SwigVar_PyObject result = PyObject_Call(method, (PyObject*) args, NULL);
+#else
+  swig::SwigVar_PyObject swig_method_name = SWIG_Python_str_FromChar((char *)"DoVoid");
+  swig::SwigVar_PyObject result = PyObject_CallMethodObjArgs(swig_get_self(), (PyObject *) swig_method_name, NULL);
+#endif
+  if (!result) {
+    PyObject *error = PyErr_Occurred();
+    {
+      if (error != NULL) {
+        PyErr_Print();
+        throw Swig::DirectorMethodException();
+      }
+    }
+  }
 }
 
 
@@ -10091,6 +10122,27 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ISkillCallback_DoVoid(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  ISkillCallback *arg1 = (ISkillCallback *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"ISkillCallback_DoVoid",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_ISkillCallback, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ISkillCallback_DoVoid" "', argument " "1"" of type '" "ISkillCallback *""'"); 
+  }
+  arg1 = reinterpret_cast< ISkillCallback * >(argp1);
+  (arg1)->DoVoid();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_ScriptSkillCallback(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   ScriptSkillCallback *arg1 = (ScriptSkillCallback *) 0 ;
@@ -10253,6 +10305,27 @@ SWIGINTERN PyObject *_wrap_SkillCaller_Call(PyObject *self, PyObject *args) {
   arg2 = reinterpret_cast< SkillData * >(argp2);
   result = (arg1)->Call(*arg2);
   resultobj = SWIG_NewPointerObj((new SkillResult(static_cast< const SkillResult& >(result))), SWIGTYPE_p_SkillResult, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SkillCaller_CallVoid(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  SkillCaller *arg1 = (SkillCaller *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"SkillCaller_CallVoid",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_SkillCaller, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SkillCaller_CallVoid" "', argument " "1"" of type '" "SkillCaller *""'"); 
+  }
+  arg1 = reinterpret_cast< SkillCaller * >(argp1);
+  (arg1)->CallVoid();
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -12182,6 +12255,7 @@ SwigPyBuiltin__ISkillCallback_richcompare(PyObject *self, PyObject *other, int o
 
 SWIGINTERN PyMethodDef SwigPyBuiltin__ISkillCallback_methods[] = {
   { "DoSkill", (PyCFunction) _wrap_ISkillCallback_DoSkill, METH_O, (char*) "" },
+  { "DoVoid", (PyCFunction) _wrap_ISkillCallback_DoVoid, METH_NOARGS, (char*) "" },
   { NULL, NULL, 0, NULL } /* Sentinel */
 };
 
@@ -12566,6 +12640,7 @@ SWIGINTERN PyMethodDef SwigPyBuiltin__SkillCaller_methods[] = {
   { "SetCallback", (PyCFunction) _wrap_SkillCaller_SetCallback, METH_O, (char*) "" },
   { "SetPyCallback", (PyCFunction) _wrap_SkillCaller_SetPyCallback, METH_O, (char*) "" },
   { "Call", (PyCFunction) _wrap_SkillCaller_Call, METH_O, (char*) "" },
+  { "CallVoid", (PyCFunction) _wrap_SkillCaller_CallVoid, METH_NOARGS, (char*) "" },
   { NULL, NULL, 0, NULL } /* Sentinel */
 };
 
