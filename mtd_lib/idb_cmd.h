@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 #include <map>
-
+#include "mtd_lib.h"
 #if !defined(_SWIG_)
 #define _CXX0X_ 1
 #endif
@@ -78,6 +78,7 @@ class HWDBRecordSet : public HWDBResult
 {
 public:
     HWDBRecordSet();
+    virtual ~HWDBRecordSet() {}
     
     static const HWDBRecordSet Empty;
 
@@ -143,5 +144,64 @@ private:
     typedef std::map<std::string, HWSQLCmd> SubMap;
     SubMap sub_map_;
 };
+
+struct MTD_API SkillData
+{
+    int id;
+    std::string name;
+    std::vector<int> data;
+};
+
+struct MTD_API SkillResult
+{
+    int id;
+    std::string result;
+	std::vector<int> data;
+};
+
+class MTD_API ISkillCallback
+{
+public:
+    virtual ~ISkillCallback()
+    {}
+
+    virtual SkillResult DoSkill(SkillData& data) = 0;
+};
+
+class MTD_API ScriptSkillCallback : public ISkillCallback
+{
+public:
+	virtual ~ScriptSkillCallback()
+	{
+
+	}
+};
+
+class MTD_API SkillCaller
+{
+public:
+    void SetCallback(SHARED_PTR<ISkillCallback>& cb)
+    {
+        cb_ = cb;
+    }
+
+	bool SetPyCallback(ScriptSkillCallback* cb)
+	{
+		cb_ = SHARED_PTR<ISkillCallback>(cb);
+        return true;
+	}
+    SkillResult Call(SkillData& data)
+    {
+        if (cb_) return cb_->DoSkill(data);
+		return SkillResult();
+    }
+    
+private:
+    SHARED_PTR<ISkillCallback> cb_;
+};
+
+extern MTD_API SkillCaller* g_caller;
+
+extern MTD_API SkillCaller* GetCaller();
 
 #endif

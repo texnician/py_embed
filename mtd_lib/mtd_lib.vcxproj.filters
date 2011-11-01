@@ -21,6 +21,12 @@
     <ClInclude Include="idb_cmd.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="swig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="py_interface_wrap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mtd_lib.cpp">

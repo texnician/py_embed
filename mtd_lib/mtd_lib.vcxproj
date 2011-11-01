@@ -46,6 +46,7 @@
       <PreprocessorDefinitions>_WINDLL;MTD_LIB_DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>D:\Python-2.7.2\PC;D:\Python-2.7.2\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4251 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,6 +69,8 @@
   <ItemGroup>
     <ClInclude Include="idb_cmd.h" />
     <ClInclude Include="mtd_lib.h" />
+    <ClInclude Include="py_interface_wrap.h" />
+    <ClInclude Include="swig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="idb_cmd.cpp" />

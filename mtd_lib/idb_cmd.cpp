@@ -6,6 +6,9 @@ const HWDBResult HWDBResult::NoError = HWDBResult();
 
 const HWDBRecordSet HWDBRecordSet::Empty = HWDBRecordSet();
 
+SkillCaller global_caller;
+SkillCaller* g_caller = &global_caller;
+
 HWDBResult::HWDBResult()
     : has_error_(false), result_(0)
 {}
@@ -237,4 +240,9 @@ std::string HWSQLCmd::DumpSQL(const HWDBResult& result, const char* name, int le
                        "==== HWSQLCmd Dump ends here ====\n");
     }
     return buf;
+}
+
+SkillCaller* GetCaller()
+{
+	return g_caller;
 }

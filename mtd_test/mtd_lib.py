@@ -78,20 +78,6 @@ def _swig_setattr_nondynamic_method(set):
     return set_attr
 
 
-try:
-    import weakref
-    weakref_proxy = weakref.proxy
-except:
-    weakref_proxy = lambda x: x
-
-
-
-
-
-
-
-
-
 
 
 
