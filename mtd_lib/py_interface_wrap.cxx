@@ -5800,8 +5800,9 @@ SkillResult SwigDirector_ScriptSkillCallback::DoSkill(SkillData &data) {
     PyObject *error = PyErr_Occurred();
     {
       if (error != NULL) {
-        PyErr_Print();
-        throw Swig::DirectorMethodException();
+        PyErr_SetString(PyExc_RuntimeError, PyString_AsString(error));
+        // PyErr_Print();
+        // throw Swig::DirectorMethodException();
       }
     }
   }
@@ -5835,8 +5836,9 @@ void SwigDirector_ScriptSkillCallback::DoVoid() {
     PyObject *error = PyErr_Occurred();
     {
       if (error != NULL) {
-        PyErr_Print();
-        throw Swig::DirectorMethodException();
+        PyErr_SetString(PyExc_RuntimeError, PyString_AsString(error));
+        // PyErr_Print();
+        // throw Swig::DirectorMethodException();
       }
     }
   }
@@ -8217,7 +8219,14 @@ SWIGINTERN PyObject *_wrap_delete_vectori(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_vectori" "', argument " "1"" of type '" "std::vector< int > *""'"); 
   }
   arg1 = reinterpret_cast< std::vector< int > * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8225,12 +8234,22 @@ fail:
 }
 
 
+
+  // ... code in wrapper section ...
+
 SWIGINTERN PyObject *_wrap_GetStringVec(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   SwigValueWrapper< std::vector< std::string,std::allocator< std::string > > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetStringVec",0,0,0)) SWIG_fail;
-  result = GetStringVec();
+  {
+    try {
+      result = GetStringVec(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new std::vector< std::string,std::allocator< std::string > >(static_cast< const std::vector< std::string,std::allocator< std::string > >& >(result))), SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -8243,7 +8262,14 @@ SWIGINTERN PyObject *_wrap_GetConstStringVec(PyObject *self, PyObject *args) {
   SwigValueWrapper< std::vector< std::string,std::allocator< std::string > > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetConstStringVec",0,0,0)) SWIG_fail;
-  result = GetConstStringVec();
+  {
+    try {
+      result = GetConstStringVec(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new std::vector< std::string,std::allocator< std::string > >(static_cast< const std::vector< std::string,std::allocator< std::string > >& >(result))), SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -8256,7 +8282,14 @@ SWIGINTERN PyObject *_wrap_GetIntVec(PyObject *self, PyObject *args) {
   std::vector< int,std::allocator< int > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetIntVec",0,0,0)) SWIG_fail;
-  result = GetIntVec();
+  {
+    try {
+      result = GetIntVec(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = swig::from(static_cast< std::vector<int,std::allocator< int > > >(result));
   return resultobj;
 fail:
@@ -8269,7 +8302,14 @@ SWIGINTERN PyObject *_wrap_GetConstIntVec(PyObject *self, PyObject *args) {
   std::vector< int,std::allocator< int > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetConstIntVec",0,0,0)) SWIG_fail;
-  result = GetConstIntVec();
+  {
+    try {
+      result = GetConstIntVec(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = swig::from(static_cast< std::vector<int,std::allocator< int > > >(result));
   return resultobj;
 fail:
@@ -8290,7 +8330,14 @@ SWIGINTERN PyObject *_wrap_delete_IHWDBEnv(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_IHWDBEnv" "', argument " "1"" of type '" "IHWDBEnv *""'"); 
   }
   arg1 = reinterpret_cast< IHWDBEnv * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8322,7 +8369,14 @@ SWIGINTERN PyObject *_wrap_IHWDBEnv_Execute(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBEnv_Execute" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (int)((IHWDBEnv const *)arg1)->Execute((char const *)arg2);
+  {
+    try {
+      result = (int)((IHWDBEnv const *)arg1)->Execute((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8373,7 +8427,14 @@ SWIGINTERN PyObject *_wrap_IHWDBEnv_ExecuteRs(PyObject *self, PyObject *args) {
       arg3 = (argp3) ? reinterpret_cast< IHWDBCursorPtr * >(argp3) : &tempshared3;
     }
   }
-  result = (int)((IHWDBEnv const *)arg1)->ExecuteRs((char const *)arg2,*arg3);
+  {
+    try {
+      result = (int)((IHWDBEnv const *)arg1)->ExecuteRs((char const *)arg2,*arg3); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8408,7 +8469,14 @@ SWIGINTERN PyObject *_wrap_delete_IHWDBCursor(PyObject *self, PyObject *args) {
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  (void)arg1; delete smartarg1;
+  {
+    try {
+      (void)arg1; delete smartarg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8442,7 +8510,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetRecordCount(PyObject *self, PyObject *
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  result = (int)(arg1)->GetRecordCount();
+  {
+    try {
+      result = (int)(arg1)->GetRecordCount(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8476,7 +8551,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldCount(PyObject *self, PyObject *a
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  result = (int)(arg1)->GetFieldCount();
+  {
+    try {
+      result = (int)(arg1)->GetFieldCount(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8510,7 +8592,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetRecord(PyObject *self, PyObject *args)
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  result = (bool)(arg1)->GetRecord();
+  {
+    try {
+      result = (bool)(arg1)->GetRecord(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -8553,7 +8642,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldValue(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "IHWDBCursor_GetFieldValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  result = (char *)(arg1)->GetFieldValue(arg2);
+  {
+    try {
+      result = (char *)(arg1)->GetFieldValue(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_FromCharPtr((const char *)result);
   return resultobj;
 fail:
@@ -8596,7 +8692,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldLength(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "IHWDBCursor_GetFieldLength" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  result = (int)(arg1)->GetFieldLength(arg2);
+  {
+    try {
+      result = (int)(arg1)->GetFieldLength(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8640,7 +8743,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldValueByName(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBCursor_GetFieldValueByName" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (char *)(arg1)->GetFieldValueByName((char const *)arg2);
+  {
+    try {
+      result = (char *)(arg1)->GetFieldValueByName((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_FromCharPtr((const char *)result);
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8686,7 +8796,14 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldLengthByName(PyObject *self, PyOb
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBCursor_GetFieldLengthByName" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (int)(arg1)->GetFieldLengthByName((char const *)arg2);
+  {
+    try {
+      result = (int)(arg1)->GetFieldLengthByName((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8701,7 +8818,14 @@ SWIGINTERN int _wrap_new_HWDBResult(PyObject *self, PyObject *args) {
   HWDBResult *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBResult",0,0,0)) SWIG_fail;
-  result = (HWDBResult *)new HWDBResult();
+  {
+    try {
+      result = (HWDBResult *)new HWDBResult(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -8722,7 +8846,14 @@ SWIGINTERN PyObject *_wrap_delete_HWDBResult(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWDBResult" "', argument " "1"" of type '" "HWDBResult *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8765,7 +8896,14 @@ SWIGINTERN PyObject *_wrap_HWDBResult_HasError(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBResult_HasError" "', argument " "1"" of type '" "HWDBResult const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  result = (bool)((HWDBResult const *)arg1)->HasError();
+  {
+    try {
+      result = (bool)((HWDBResult const *)arg1)->HasError(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -8796,7 +8934,14 @@ SWIGINTERN PyObject *_wrap_HWDBResult_SetResult(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HWDBResult_SetResult" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  result = (HWDBResult *) &(arg1)->SetResult(arg2);
+  {
+    try {
+      result = (HWDBResult *) &(arg1)->SetResult(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   return resultobj;
 fail:
@@ -8818,7 +8963,14 @@ SWIGINTERN PyObject *_wrap_HWDBResult_GetResult(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBResult_GetResult" "', argument " "1"" of type '" "HWDBResult const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  result = (int)((HWDBResult const *)arg1)->GetResult();
+  {
+    try {
+      result = (int)((HWDBResult const *)arg1)->GetResult(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8860,7 +9012,14 @@ SWIGINTERN PyObject *_wrap_HWDBResult_SetSubResult(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWDBResult_SetSubResult" "', argument " "3"" of type '" "HWDBResult const &""'"); 
   }
   arg3 = reinterpret_cast< HWDBResult * >(argp3);
-  result = (HWDBResult *) &(arg1)->SetSubResult((char const *)arg2,(HWDBResult const &)*arg3);
+  {
+    try {
+      result = (HWDBResult *) &(arg1)->SetSubResult((char const *)arg2,(HWDBResult const &)*arg3); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8894,7 +9053,14 @@ SWIGINTERN PyObject *_wrap_HWDBResult_GetSubResult(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWDBResult_GetSubResult" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (HWDBResult *) &((HWDBResult const *)arg1)->GetSubResult((char const *)arg2);
+  {
+    try {
+      result = (HWDBResult *) &((HWDBResult const *)arg1)->GetSubResult((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8909,7 +9075,14 @@ SWIGINTERN int _wrap_new_HWDBRecordSet(PyObject *self, PyObject *args) {
   HWDBRecordSet *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBRecordSet",0,0,0)) SWIG_fail;
-  result = (HWDBRecordSet *)new HWDBRecordSet();
+  {
+    try {
+      result = (HWDBRecordSet *)new HWDBRecordSet(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -8930,7 +9103,14 @@ SWIGINTERN PyObject *_wrap_delete_HWDBRecordSet(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWDBRecordSet" "', argument " "1"" of type '" "HWDBRecordSet *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8973,7 +9153,14 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_IsEmpty(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBRecordSet_IsEmpty" "', argument " "1"" of type '" "HWDBRecordSet const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  result = (bool)((HWDBRecordSet const *)arg1)->IsEmpty();
+  {
+    try {
+      result = (bool)((HWDBRecordSet const *)arg1)->IsEmpty(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -9014,7 +9201,14 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_SetCursor(PyObject *self, PyObject *arg
       arg2 = (argp2) ? reinterpret_cast< IHWDBCursorPtr * >(argp2) : &tempshared2;
     }
   }
-  result = (HWDBRecordSet *) &(arg1)->SetCursor((IHWDBCursorPtr const &)*arg2);
+  {
+    try {
+      result = (HWDBRecordSet *) &(arg1)->SetCursor((IHWDBCursorPtr const &)*arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   return resultobj;
 fail:
@@ -9036,7 +9230,14 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_GetCursor(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBRecordSet_GetCursor" "', argument " "1"" of type '" "HWDBRecordSet const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  result = ((HWDBRecordSet const *)arg1)->GetCursor();
+  {
+    try {
+      result = ((HWDBRecordSet const *)arg1)->GetCursor(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   {
     std::shared_ptr<  IHWDBCursor > *smartresult = result ? new std::shared_ptr<  IHWDBCursor >(result) : 0;
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(smartresult), SWIGTYPE_p_std__shared_ptrT_IHWDBCursor_t, SWIG_POINTER_OWN);
@@ -9081,7 +9282,14 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_SetSubRecordSet(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWDBRecordSet_SetSubRecordSet" "', argument " "3"" of type '" "HWDBRecordSet const &""'"); 
   }
   arg3 = reinterpret_cast< HWDBRecordSet * >(argp3);
-  result = (HWDBRecordSet *) &(arg1)->SetSubRecordSet((char const *)arg2,(HWDBRecordSet const &)*arg3);
+  {
+    try {
+      result = (HWDBRecordSet *) &(arg1)->SetSubRecordSet((char const *)arg2,(HWDBRecordSet const &)*arg3); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9115,7 +9323,14 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_GetSubRecordSet(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWDBRecordSet_GetSubRecordSet" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (HWDBRecordSet *) &((HWDBRecordSet const *)arg1)->GetSubRecordSet((char const *)arg2);
+  {
+    try {
+      result = (HWDBRecordSet *) &((HWDBRecordSet const *)arg1)->GetSubRecordSet((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9139,7 +9354,14 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_0(PyObject *self, int nobjs, PyObject **
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HWSQLCmd" "', argument " "1"" of type '" "char const *""'");
   }
   arg1 = reinterpret_cast< char * >(buf1);
-  result = (HWSQLCmd *)new HWSQLCmd((char const *)arg1);
+  {
+    try {
+      result = (HWSQLCmd *)new HWSQLCmd((char const *)arg1); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj == Py_None ? 1 : 0;
@@ -9154,7 +9376,14 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_1(PyObject *self, int nobjs, PyObject **
   HWSQLCmd *result = 0 ;
   
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
-  result = (HWSQLCmd *)new HWSQLCmd();
+  {
+    try {
+      result = (HWSQLCmd *)new HWSQLCmd(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -9218,7 +9447,14 @@ SWIGINTERN PyObject *_wrap_delete_HWSQLCmd(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWSQLCmd" "', argument " "1"" of type '" "HWSQLCmd *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -9240,7 +9476,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_IsNull(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_IsNull" "', argument " "1"" of type '" "HWSQLCmd const *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  result = (bool)((HWSQLCmd const *)arg1)->IsNull();
+  {
+    try {
+      result = (bool)((HWSQLCmd const *)arg1)->IsNull(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -9262,7 +9505,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_Reset(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_Reset" "', argument " "1"" of type '" "HWSQLCmd *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  result = (HWSQLCmd *) &(arg1)->Reset();
+  {
+    try {
+      result = (HWSQLCmd *) &(arg1)->Reset(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   return resultobj;
 fail:
@@ -9294,7 +9544,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_SetSQL(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_SetSQL" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (HWSQLCmd *) &(arg1)->SetSQL((char const *)arg2);
+  {
+    try {
+      result = (HWSQLCmd *) &(arg1)->SetSQL((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9338,7 +9595,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_SetSubCmd(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWSQLCmd_SetSubCmd" "', argument " "3"" of type '" "HWSQLCmd const &""'"); 
   }
   arg3 = reinterpret_cast< HWSQLCmd * >(argp3);
-  result = (HWSQLCmd *) &(arg1)->SetSubCmd((char const *)arg2,(HWSQLCmd const &)*arg3);
+  {
+    try {
+      result = (HWSQLCmd *) &(arg1)->SetSubCmd((char const *)arg2,(HWSQLCmd const &)*arg3); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9370,7 +9634,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_GetSubCmd__SWIG_0(PyObject *self, int nobjs,
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_GetSubCmd" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (HWSQLCmd *) &((HWSQLCmd const *)arg1)->GetSubCmd((char const *)arg2);
+  {
+    try {
+      result = (HWSQLCmd *) &((HWSQLCmd const *)arg1)->GetSubCmd((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9402,7 +9673,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_GetSubCmd__SWIG_1(PyObject *self, int nobjs,
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_GetSubCmd" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  result = (HWSQLCmd *) &(arg1)->GetSubCmd((char const *)arg2);
+  {
+    try {
+      result = (HWSQLCmd *) &(arg1)->GetSubCmd((char const *)arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9457,7 +9735,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_Execute(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_Execute" "', argument " "2"" of type '" "IHWDBEnv *""'"); 
   }
   arg2 = reinterpret_cast< IHWDBEnv * >(argp2);
-  result = ((HWSQLCmd const *)arg1)->Execute(arg2);
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->Execute(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new HWDBResult(static_cast< const HWDBResult& >(result))), SWIGTYPE_p_HWDBResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -9488,7 +9773,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_ExecuteRs(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_ExecuteRs" "', argument " "2"" of type '" "IHWDBEnv *""'"); 
   }
   arg2 = reinterpret_cast< IHWDBEnv * >(argp2);
-  result = ((HWSQLCmd const *)arg1)->ExecuteRs(arg2);
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->ExecuteRs(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new HWDBRecordSet(static_cast< const HWDBRecordSet& >(result))), SWIGTYPE_p_HWDBRecordSet, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -9537,7 +9829,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_0(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "HWSQLCmd_DumpSQL" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = static_cast< int >(val4);
-  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3,arg4);
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3,arg4); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
   return resultobj;
@@ -9580,7 +9879,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_1(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "HWSQLCmd_DumpSQL" "', argument " "3"" of type '" "char const *""'");
   }
   arg3 = reinterpret_cast< char * >(buf3);
-  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3);
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
   return resultobj;
@@ -9614,7 +9920,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_2(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWSQLCmd_DumpSQL" "', argument " "2"" of type '" "HWDBResult const &""'"); 
   }
   arg2 = reinterpret_cast< HWDBResult * >(argp2);
-  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2);
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   return resultobj;
 fail:
@@ -9635,7 +9948,14 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_3(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_DumpSQL" "', argument " "1"" of type '" "HWSQLCmd const *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  result = ((HWSQLCmd const *)arg1)->DumpSQL();
+  {
+    try {
+      result = ((HWSQLCmd const *)arg1)->DumpSQL(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   return resultobj;
 fail:
@@ -9841,7 +10161,14 @@ SWIGINTERN int _wrap_new_SkillData(PyObject *self, PyObject *args) {
   SkillData *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillData",0,0,0)) SWIG_fail;
-  result = (SkillData *)new SkillData();
+  {
+    try {
+      result = (SkillData *)new SkillData(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillData, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -9862,7 +10189,14 @@ SWIGINTERN PyObject *_wrap_delete_SkillData(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillData" "', argument " "1"" of type '" "SkillData *""'"); 
   }
   arg1 = reinterpret_cast< SkillData * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10038,7 +10372,14 @@ SWIGINTERN int _wrap_new_SkillResult(PyObject *self, PyObject *args) {
   SkillResult *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillResult",0,0,0)) SWIG_fail;
-  result = (SkillResult *)new SkillResult();
+  {
+    try {
+      result = (SkillResult *)new SkillResult(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillResult, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10059,7 +10400,14 @@ SWIGINTERN PyObject *_wrap_delete_SkillResult(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillResult" "', argument " "1"" of type '" "SkillResult *""'"); 
   }
   arg1 = reinterpret_cast< SkillResult * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10080,7 +10428,14 @@ SWIGINTERN PyObject *_wrap_delete_ISkillCallback(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ISkillCallback" "', argument " "1"" of type '" "ISkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ISkillCallback * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10114,7 +10469,14 @@ SWIGINTERN PyObject *_wrap_ISkillCallback_DoSkill(PyObject *self, PyObject *args
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ISkillCallback_DoSkill" "', argument " "2"" of type '" "SkillData &""'"); 
   }
   arg2 = reinterpret_cast< SkillData * >(argp2);
-  result = (arg1)->DoSkill(*arg2);
+  {
+    try {
+      result = (arg1)->DoSkill(*arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new SkillResult(static_cast< const SkillResult& >(result))), SWIGTYPE_p_SkillResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -10135,7 +10497,14 @@ SWIGINTERN PyObject *_wrap_ISkillCallback_DoVoid(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ISkillCallback_DoVoid" "', argument " "1"" of type '" "ISkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ISkillCallback * >(argp1);
-  (arg1)->DoVoid();
+  {
+    try {
+      (arg1)->DoVoid(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10156,7 +10525,14 @@ SWIGINTERN PyObject *_wrap_delete_ScriptSkillCallback(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ScriptSkillCallback" "', argument " "1"" of type '" "ScriptSkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ScriptSkillCallback * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10172,14 +10548,20 @@ SWIGINTERN int _wrap_new_ScriptSkillCallback(PyObject *self, PyObject *args) {
   
   if (!SWIG_Python_UnpackTuple(args,"new_ScriptSkillCallback",0,0,0)) SWIG_fail;
   arg1 = self;
-  if ( self->ob_type != ((SwigPyClientData*) (SWIGTYPE_p_ScriptSkillCallback)->clientdata)->pytype ) {
-    /* subclassed */
-    result = (ScriptSkillCallback *)new SwigDirector_ScriptSkillCallback(arg1); 
-  } else {
-    SWIG_SetErrorMsg(PyExc_RuntimeError,"accessing abstract class or protected constructor"); 
-    SWIG_fail;
+  {
+    try {
+      if ( self->ob_type != ((SwigPyClientData*) (SWIGTYPE_p_ScriptSkillCallback)->clientdata)->pytype ) {
+        /* subclassed */
+        result = (ScriptSkillCallback *)new SwigDirector_ScriptSkillCallback(arg1); 
+      } else {
+        SWIG_SetErrorMsg(PyExc_RuntimeError,"accessing abstract class or protected constructor"); 
+        SWIG_fail;
+      }
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
   }
-  
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ScriptSkillCallback, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10238,7 +10620,14 @@ SWIGINTERN PyObject *_wrap_SkillCaller_SetCallback(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SkillCaller_SetCallback" "', argument " "2"" of type '" "std::shared_ptr< ISkillCallback > &""'"); 
   }
   arg2 = reinterpret_cast< std::shared_ptr< ISkillCallback > * >(argp2);
-  (arg1)->SetCallback(*arg2);
+  {
+    try {
+      (arg1)->SetCallback(*arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10269,7 +10658,14 @@ SWIGINTERN PyObject *_wrap_SkillCaller_SetPyCallback(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SkillCaller_SetPyCallback" "', argument " "2"" of type '" "ScriptSkillCallback *""'"); 
   }
   arg2 = reinterpret_cast< ScriptSkillCallback * >(argp2);
-  result = (bool)(arg1)->SetPyCallback(arg2);
+  {
+    try {
+      result = (bool)(arg1)->SetPyCallback(arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10303,7 +10699,14 @@ SWIGINTERN PyObject *_wrap_SkillCaller_Call(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SkillCaller_Call" "', argument " "2"" of type '" "SkillData &""'"); 
   }
   arg2 = reinterpret_cast< SkillData * >(argp2);
-  result = (arg1)->Call(*arg2);
+  {
+    try {
+      result = (arg1)->Call(*arg2); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj((new SkillResult(static_cast< const SkillResult& >(result))), SWIGTYPE_p_SkillResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -10324,7 +10727,14 @@ SWIGINTERN PyObject *_wrap_SkillCaller_CallVoid(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SkillCaller_CallVoid" "', argument " "1"" of type '" "SkillCaller *""'"); 
   }
   arg1 = reinterpret_cast< SkillCaller * >(argp1);
-  (arg1)->CallVoid();
+  {
+    try {
+      (arg1)->CallVoid(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10337,7 +10747,14 @@ SWIGINTERN int _wrap_new_SkillCaller(PyObject *self, PyObject *args) {
   SkillCaller *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillCaller",0,0,0)) SWIG_fail;
-  result = (SkillCaller *)new SkillCaller();
+  {
+    try {
+      result = (SkillCaller *)new SkillCaller(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillCaller, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10358,7 +10775,14 @@ SWIGINTERN PyObject *_wrap_delete_SkillCaller(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillCaller" "', argument " "1"" of type '" "SkillCaller *""'"); 
   }
   arg1 = reinterpret_cast< SkillCaller * >(argp1);
-  delete arg1;
+  {
+    try {
+      delete arg1; 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10396,7 +10820,14 @@ SWIGINTERN PyObject *_wrap_GetCaller(PyObject *self, PyObject *args) {
   SkillCaller *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"GetCaller",0,0,0)) SWIG_fail;
-  result = (SkillCaller *)GetCaller();
+  {
+    try {
+      result = (SkillCaller *)GetCaller(); 
+    }
+    catch(Swig::DirectorException &e) {
+      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+    }
+  }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillCaller, 0 |  0 );
   return resultobj;
 fail:

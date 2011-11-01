@@ -26,10 +26,22 @@ namespace std {
 
 %feature("director:except") {
     if ($error != NULL) {
-        PyErr_Print();
-        throw Swig::DirectorMethodException();
+        PyErr_SetString(PyExc_RuntimeError, PyString_AsString($error));
+        // PyErr_Print();
+        // throw Swig::DirectorMethodException();
     }
 }
+
+%exception {
+        try { $action }
+        catch(Swig::DirectorException &e) {
+            PyErr_SetString(PyExc_RuntimeError, e.getMessage());
+        }
+}
+
+%wrapper %{
+  // ... code in wrapper section ...
+%}
 
 %include "mtd_lib.h"
 %include "idb_cmd.h"
