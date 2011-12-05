@@ -182,6 +182,9 @@ public:
 class MTD_API SkillCaller
 {
 public:
+    void TestString(const std::string& name)
+    {}
+    
     void SetCallback(SHARED_PTR<ISkillCallback>& cb)
     {
         cb_ = cb;
@@ -209,5 +212,7 @@ private:
 extern MTD_API SkillCaller* g_caller;
 
 extern MTD_API SkillCaller* GetCaller();
+
+extern MTD_API std::string StrFoo();
 
 #endif

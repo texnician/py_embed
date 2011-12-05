@@ -27,6 +27,12 @@
     <ClInclude Include="py_interface_wrap.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\swig_rt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stackless_client.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mtd_lib.cpp">
@@ -36,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="py_interface_wrap.cxx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stackless_client.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

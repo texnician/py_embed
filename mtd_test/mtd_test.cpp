@@ -1,4 +1,4 @@
-// mtd_test.cpp : 定义控制台应用程序的入口点。
+// mtd_test.cpp : 露篓脪氓驴脴脰脝脤篓脫娄脫脙鲁脤脨貌碌脛脠毛驴脷碌茫隆拢
 //
 
 #include "stdafx.h"
@@ -27,9 +27,14 @@ public:
 
     virtual int GetFieldLengthByName(const char *name) { return 1; }
 };
-int _tmain(int argc, _TCHAR* argv[])
+
+#include <windows.h>
+bool py_init = false;
+DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
-	int64_t a = 111111;
+    PyObject *pName, *pModule, *pDict, *pFunc;
+
+    int64_t a = 111111;
 
     auto x = strtoul("4294967295", (char **)NULL, 10);
     
@@ -46,11 +51,20 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::vector<std::string> v1 = GetStringVec();
 	}
 
-    PyObject *pName, *pModule, *pDict, *pFunc;
-    
-    Py_Initialize();
-	init_mtd_lib();
+	
+	py_init = true;
+
+    Sleep(5000);
+
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+
 	// SWIG_init();
+    
+    /* Perform Python actions here. */
+    PyRun_SimpleString("print('i am sub thread!')");
+    /* evaluate result or handle exception */
+    
     pName = PyString_FromString("mtd_lib");
     /* Error checking of pName left out */
     pModule = PyImport_Import(pName);
@@ -82,6 +96,42 @@ int _tmain(int argc, _TCHAR* argv[])
     Py_DECREF(pHwName);
     Py_DECREF(pModule);
     Py_DECREF(pHw);
-    
+
+    /* Release the thread. No Python API allowed beyond this point. */
+    PyGILState_Release(gstate);
 	return 0;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    Py_Initialize();
+    init_mtd_lib();
+    HANDLE hThread;
+    DWORD dwThreadId;
+    
+    hThread = ::CreateThread (
+        NULL, 
+        NULL, 
+        ThreadProc,
+        NULL,
+        0,
+        &dwThreadId);
+    printf(" Now another thread has been created. ID = %d \n", dwThreadId);
+
+    while (!py_init) {
+	}
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    if (Py_IsInitialized()) {
+        /* Perform Python actions here. */
+        PyRun_SimpleString("print('i am main thread!')");
+        /* evaluate result or handle exception */
+    }
+    PyGILState_Release(gstate);
+    
+    while(::WaitForSingleObject (hThread, 20) != WAIT_OBJECT_0) {}
+    ::CloseHandle (hThread);
+    // gstate = PyGILState_Ensure();
+    // Py_Finalize();
+    return 0;
 }

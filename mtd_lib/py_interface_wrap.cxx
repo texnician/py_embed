@@ -3930,46 +3930,48 @@ namespace Swig {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_HWDBRecordSet swig_types[0]
-#define SWIGTYPE_p_HWDBResult swig_types[1]
-#define SWIGTYPE_p_HWSQLCmd swig_types[2]
-#define SWIGTYPE_p_IHWDBCursor swig_types[3]
-#define SWIGTYPE_p_IHWDBEnv swig_types[4]
-#define SWIGTYPE_p_ISkillCallback swig_types[5]
-#define SWIGTYPE_p_ScriptSkillCallback swig_types[6]
-#define SWIGTYPE_p_SkillCaller swig_types[7]
-#define SWIGTYPE_p_SkillData swig_types[8]
-#define SWIGTYPE_p_SkillResult swig_types[9]
-#define SWIGTYPE_p_SwigPyObject swig_types[10]
-#define SWIGTYPE_p___int64 swig_types[11]
-#define SWIGTYPE_p_allocator_type swig_types[12]
-#define SWIGTYPE_p_char swig_types[13]
-#define SWIGTYPE_p_difference_type swig_types[14]
-#define SWIGTYPE_p_float swig_types[15]
-#define SWIGTYPE_p_int swig_types[16]
-#define SWIGTYPE_p_long swig_types[17]
-#define SWIGTYPE_p_p_PyObject swig_types[18]
-#define SWIGTYPE_p_p_char swig_types[19]
-#define SWIGTYPE_p_p_unsigned_long swig_types[20]
-#define SWIGTYPE_p_short swig_types[21]
-#define SWIGTYPE_p_signed___int64 swig_types[22]
-#define SWIGTYPE_p_signed_char swig_types[23]
-#define SWIGTYPE_p_size_type swig_types[24]
-#define SWIGTYPE_p_std__allocatorT_int_t swig_types[25]
-#define SWIGTYPE_p_std__invalid_argument swig_types[26]
-#define SWIGTYPE_p_std__shared_ptrT_IHWDBCursor_t swig_types[27]
-#define SWIGTYPE_p_std__shared_ptrT_ISkillCallback_t swig_types[28]
-#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[29]
-#define SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t swig_types[30]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[31]
-#define SWIGTYPE_p_unsigned___int64 swig_types[32]
-#define SWIGTYPE_p_unsigned_char swig_types[33]
-#define SWIGTYPE_p_unsigned_int swig_types[34]
-#define SWIGTYPE_p_unsigned_long swig_types[35]
-#define SWIGTYPE_p_unsigned_short swig_types[36]
-#define SWIGTYPE_p_value_type swig_types[37]
-static swig_type_info *swig_types[39];
-static swig_module_info swig_module = {swig_types, 38, 0, 0, 0, 0};
+#define SWIGTYPE_p_CliEvent swig_types[0]
+#define SWIGTYPE_p_HWDBRecordSet swig_types[1]
+#define SWIGTYPE_p_HWDBResult swig_types[2]
+#define SWIGTYPE_p_HWSQLCmd swig_types[3]
+#define SWIGTYPE_p_IHWDBCursor swig_types[4]
+#define SWIGTYPE_p_IHWDBEnv swig_types[5]
+#define SWIGTYPE_p_ISkillCallback swig_types[6]
+#define SWIGTYPE_p_ScriptSkillCallback swig_types[7]
+#define SWIGTYPE_p_SkillCaller swig_types[8]
+#define SWIGTYPE_p_SkillData swig_types[9]
+#define SWIGTYPE_p_SkillResult swig_types[10]
+#define SWIGTYPE_p_StacklessClient swig_types[11]
+#define SWIGTYPE_p_SwigPyObject swig_types[12]
+#define SWIGTYPE_p___int64 swig_types[13]
+#define SWIGTYPE_p_allocator_type swig_types[14]
+#define SWIGTYPE_p_char swig_types[15]
+#define SWIGTYPE_p_difference_type swig_types[16]
+#define SWIGTYPE_p_float swig_types[17]
+#define SWIGTYPE_p_int swig_types[18]
+#define SWIGTYPE_p_long swig_types[19]
+#define SWIGTYPE_p_p_PyObject swig_types[20]
+#define SWIGTYPE_p_p_char swig_types[21]
+#define SWIGTYPE_p_p_unsigned_long swig_types[22]
+#define SWIGTYPE_p_short swig_types[23]
+#define SWIGTYPE_p_signed___int64 swig_types[24]
+#define SWIGTYPE_p_signed_char swig_types[25]
+#define SWIGTYPE_p_size_type swig_types[26]
+#define SWIGTYPE_p_std__allocatorT_int_t swig_types[27]
+#define SWIGTYPE_p_std__invalid_argument swig_types[28]
+#define SWIGTYPE_p_std__shared_ptrT_IHWDBCursor_t swig_types[29]
+#define SWIGTYPE_p_std__shared_ptrT_ISkillCallback_t swig_types[30]
+#define SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t swig_types[31]
+#define SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t swig_types[32]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[33]
+#define SWIGTYPE_p_unsigned___int64 swig_types[34]
+#define SWIGTYPE_p_unsigned_char swig_types[35]
+#define SWIGTYPE_p_unsigned_int swig_types[36]
+#define SWIGTYPE_p_unsigned_long swig_types[37]
+#define SWIGTYPE_p_unsigned_short swig_types[38]
+#define SWIGTYPE_p_value_type swig_types[39]
+static swig_type_info *swig_types[41];
+static swig_module_info swig_module = {swig_types, 40, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4093,6 +4095,7 @@ SWIG_From_int  (int value)
 #include "mtd_lib.h"    
 #include "idb_cmd.h"
 #include "swig.h"
+#include "stackless_client.h"
 
 
 #include <string>
@@ -5600,6 +5603,28 @@ SWIGINTERN void std_vector_Sl_int_Sg__append(std::vector< int > *self,std::vecto
       self->push_back(x);
     }
 
+PyObject* SWIGNewCliEvent(CliEvent* ev)
+{
+  PyObject* self = NULL;
+  PyObject* py_ev = SWIG_NewPointerObj(SWIG_as_voidptr(ev), SWIGTYPE_p_CliEvent, SWIG_POINTER_OWN |  0 );
+  return py_ev;
+}
+ 
+CliEvent* SWIGConvertCliEvent(PyObject* py_ev)
+{
+  void* ev;
+  SWIG_ConvertPtr(py_ev, &ev, SWIGTYPE_p_CliEvent,  0);
+  return (CliEvent*)ev;
+}
+ 
+PyObject* SWIGNewStacklessClient(StacklessClient* cli)
+{
+  PyObject* self = NULL;
+  PyObject* py_cli = SWIG_NewPointerObj(SWIG_as_voidptr(cli), SWIGTYPE_p_StacklessClient, 0);
+  return py_cli;
+}
+
+
 SWIGINTERN swig_type_info*
 SWIG_pchar_descriptor(void)
 {
@@ -5757,6 +5782,11 @@ SWIG_AsPtr_std_string (PyObject * obj, std::string **val)
   return SWIG_ERROR;
 }
 
+SWIGINTERN int *SkillCaller_CallVoid(SkillCaller *self){
+    self->CallVoid();
+    return NULL;
+    
+  }
 
 
 /* ---------------------------------------------------
@@ -5800,9 +5830,7 @@ SkillResult SwigDirector_ScriptSkillCallback::DoSkill(SkillData &data) {
     PyObject *error = PyErr_Occurred();
     {
       if (error != NULL) {
-        PyErr_SetString(PyExc_RuntimeError, PyString_AsString(error));
-        // PyErr_Print();
-        // throw Swig::DirectorMethodException();
+        PyErr_Print();
       }
     }
   }
@@ -5836,9 +5864,7 @@ void SwigDirector_ScriptSkillCallback::DoVoid() {
     PyObject *error = PyErr_Occurred();
     {
       if (error != NULL) {
-        PyErr_SetString(PyExc_RuntimeError, PyString_AsString(error));
-        // PyErr_Print();
-        // throw Swig::DirectorMethodException();
+        PyErr_Print();
       }
     }
   }
@@ -8219,14 +8245,7 @@ SWIGINTERN PyObject *_wrap_delete_vectori(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_vectori" "', argument " "1"" of type '" "std::vector< int > *""'"); 
   }
   arg1 = reinterpret_cast< std::vector< int > * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8237,19 +8256,75 @@ fail:
 
   // ... code in wrapper section ...
 
+SWIGINTERN PyObject *_wrap_SWIGNewCliEvent(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  PyObject *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CliEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SWIGNewCliEvent" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  result = (PyObject *)SWIGNewCliEvent(arg1);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SWIGConvertCliEvent(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject *swig_obj[1] ;
+  CliEvent *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  arg1 = swig_obj[0];
+  result = (CliEvent *)SWIGConvertCliEvent(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CliEvent, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SWIGNewStacklessClient(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  PyObject *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SWIGNewStacklessClient" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  result = (PyObject *)SWIGNewStacklessClient(arg1);
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GetStringVec(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   SwigValueWrapper< std::vector< std::string,std::allocator< std::string > > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetStringVec",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = GetStringVec(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = GetStringVec();
   resultobj = SWIG_NewPointerObj((new std::vector< std::string,std::allocator< std::string > >(static_cast< const std::vector< std::string,std::allocator< std::string > >& >(result))), SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -8262,14 +8337,7 @@ SWIGINTERN PyObject *_wrap_GetConstStringVec(PyObject *self, PyObject *args) {
   SwigValueWrapper< std::vector< std::string,std::allocator< std::string > > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetConstStringVec",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = GetConstStringVec(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = GetConstStringVec();
   resultobj = SWIG_NewPointerObj((new std::vector< std::string,std::allocator< std::string > >(static_cast< const std::vector< std::string,std::allocator< std::string > >& >(result))), SWIGTYPE_p_std__vectorT_std__string_std__allocatorT_std__string_t_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -8282,14 +8350,7 @@ SWIGINTERN PyObject *_wrap_GetIntVec(PyObject *self, PyObject *args) {
   std::vector< int,std::allocator< int > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetIntVec",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = GetIntVec(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = GetIntVec();
   resultobj = swig::from(static_cast< std::vector<int,std::allocator< int > > >(result));
   return resultobj;
 fail:
@@ -8302,14 +8363,7 @@ SWIGINTERN PyObject *_wrap_GetConstIntVec(PyObject *self, PyObject *args) {
   std::vector< int,std::allocator< int > > result;
   
   if (!SWIG_Python_UnpackTuple(args,"GetConstIntVec",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = GetConstIntVec(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = GetConstIntVec();
   resultobj = swig::from(static_cast< std::vector<int,std::allocator< int > > >(result));
   return resultobj;
 fail:
@@ -8330,14 +8384,7 @@ SWIGINTERN PyObject *_wrap_delete_IHWDBEnv(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_IHWDBEnv" "', argument " "1"" of type '" "IHWDBEnv *""'"); 
   }
   arg1 = reinterpret_cast< IHWDBEnv * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8369,14 +8416,7 @@ SWIGINTERN PyObject *_wrap_IHWDBEnv_Execute(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBEnv_Execute" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (int)((IHWDBEnv const *)arg1)->Execute((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)((IHWDBEnv const *)arg1)->Execute((char const *)arg2);
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8427,14 +8467,7 @@ SWIGINTERN PyObject *_wrap_IHWDBEnv_ExecuteRs(PyObject *self, PyObject *args) {
       arg3 = (argp3) ? reinterpret_cast< IHWDBCursorPtr * >(argp3) : &tempshared3;
     }
   }
-  {
-    try {
-      result = (int)((IHWDBEnv const *)arg1)->ExecuteRs((char const *)arg2,*arg3); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)((IHWDBEnv const *)arg1)->ExecuteRs((char const *)arg2,*arg3);
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8469,14 +8502,7 @@ SWIGINTERN PyObject *_wrap_delete_IHWDBCursor(PyObject *self, PyObject *args) {
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  {
-    try {
-      (void)arg1; delete smartarg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  (void)arg1; delete smartarg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8510,14 +8536,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetRecordCount(PyObject *self, PyObject *
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  {
-    try {
-      result = (int)(arg1)->GetRecordCount(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)(arg1)->GetRecordCount();
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8551,14 +8570,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldCount(PyObject *self, PyObject *a
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  {
-    try {
-      result = (int)(arg1)->GetFieldCount(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)(arg1)->GetFieldCount();
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8592,14 +8604,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetRecord(PyObject *self, PyObject *args)
       arg1 = const_cast< IHWDBCursor * >((smartarg1 ? smartarg1->get() : 0));
     }
   }
-  {
-    try {
-      result = (bool)(arg1)->GetRecord(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (bool)(arg1)->GetRecord();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -8642,14 +8647,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldValue(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "IHWDBCursor_GetFieldValue" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  {
-    try {
-      result = (char *)(arg1)->GetFieldValue(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (char *)(arg1)->GetFieldValue(arg2);
   resultobj = SWIG_FromCharPtr((const char *)result);
   return resultobj;
 fail:
@@ -8692,14 +8690,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldLength(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "IHWDBCursor_GetFieldLength" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  {
-    try {
-      result = (int)(arg1)->GetFieldLength(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)(arg1)->GetFieldLength(arg2);
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -8743,14 +8734,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldValueByName(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBCursor_GetFieldValueByName" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (char *)(arg1)->GetFieldValueByName((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (char *)(arg1)->GetFieldValueByName((char const *)arg2);
   resultobj = SWIG_FromCharPtr((const char *)result);
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8796,14 +8780,7 @@ SWIGINTERN PyObject *_wrap_IHWDBCursor_GetFieldLengthByName(PyObject *self, PyOb
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IHWDBCursor_GetFieldLengthByName" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (int)(arg1)->GetFieldLengthByName((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)(arg1)->GetFieldLengthByName((char const *)arg2);
   resultobj = SWIG_From_int(static_cast< int >(result));
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -8818,14 +8795,7 @@ SWIGINTERN int _wrap_new_HWDBResult(PyObject *self, PyObject *args) {
   HWDBResult *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBResult",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (HWDBResult *)new HWDBResult(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBResult *)new HWDBResult();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -8846,14 +8816,7 @@ SWIGINTERN PyObject *_wrap_delete_HWDBResult(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWDBResult" "', argument " "1"" of type '" "HWDBResult *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8896,14 +8859,7 @@ SWIGINTERN PyObject *_wrap_HWDBResult_HasError(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBResult_HasError" "', argument " "1"" of type '" "HWDBResult const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  {
-    try {
-      result = (bool)((HWDBResult const *)arg1)->HasError(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (bool)((HWDBResult const *)arg1)->HasError();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -8934,14 +8890,7 @@ SWIGINTERN PyObject *_wrap_HWDBResult_SetResult(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HWDBResult_SetResult" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  {
-    try {
-      result = (HWDBResult *) &(arg1)->SetResult(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBResult *) &(arg1)->SetResult(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   return resultobj;
 fail:
@@ -8963,14 +8912,7 @@ SWIGINTERN PyObject *_wrap_HWDBResult_GetResult(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBResult_GetResult" "', argument " "1"" of type '" "HWDBResult const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBResult * >(argp1);
-  {
-    try {
-      result = (int)((HWDBResult const *)arg1)->GetResult(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (int)((HWDBResult const *)arg1)->GetResult();
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -9012,14 +8954,7 @@ SWIGINTERN PyObject *_wrap_HWDBResult_SetSubResult(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWDBResult_SetSubResult" "', argument " "3"" of type '" "HWDBResult const &""'"); 
   }
   arg3 = reinterpret_cast< HWDBResult * >(argp3);
-  {
-    try {
-      result = (HWDBResult *) &(arg1)->SetSubResult((char const *)arg2,(HWDBResult const &)*arg3); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBResult *) &(arg1)->SetSubResult((char const *)arg2,(HWDBResult const &)*arg3);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9053,14 +8988,7 @@ SWIGINTERN PyObject *_wrap_HWDBResult_GetSubResult(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWDBResult_GetSubResult" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (HWDBResult *) &((HWDBResult const *)arg1)->GetSubResult((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBResult *) &((HWDBResult const *)arg1)->GetSubResult((char const *)arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9075,14 +9003,7 @@ SWIGINTERN int _wrap_new_HWDBRecordSet(PyObject *self, PyObject *args) {
   HWDBRecordSet *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBRecordSet",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (HWDBRecordSet *)new HWDBRecordSet(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBRecordSet *)new HWDBRecordSet();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -9103,14 +9024,7 @@ SWIGINTERN PyObject *_wrap_delete_HWDBRecordSet(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWDBRecordSet" "', argument " "1"" of type '" "HWDBRecordSet *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -9153,14 +9067,7 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_IsEmpty(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBRecordSet_IsEmpty" "', argument " "1"" of type '" "HWDBRecordSet const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  {
-    try {
-      result = (bool)((HWDBRecordSet const *)arg1)->IsEmpty(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (bool)((HWDBRecordSet const *)arg1)->IsEmpty();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -9201,14 +9108,7 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_SetCursor(PyObject *self, PyObject *arg
       arg2 = (argp2) ? reinterpret_cast< IHWDBCursorPtr * >(argp2) : &tempshared2;
     }
   }
-  {
-    try {
-      result = (HWDBRecordSet *) &(arg1)->SetCursor((IHWDBCursorPtr const &)*arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBRecordSet *) &(arg1)->SetCursor((IHWDBCursorPtr const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   return resultobj;
 fail:
@@ -9230,14 +9130,7 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_GetCursor(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWDBRecordSet_GetCursor" "', argument " "1"" of type '" "HWDBRecordSet const *""'"); 
   }
   arg1 = reinterpret_cast< HWDBRecordSet * >(argp1);
-  {
-    try {
-      result = ((HWDBRecordSet const *)arg1)->GetCursor(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWDBRecordSet const *)arg1)->GetCursor();
   {
     std::shared_ptr<  IHWDBCursor > *smartresult = result ? new std::shared_ptr<  IHWDBCursor >(result) : 0;
     resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(smartresult), SWIGTYPE_p_std__shared_ptrT_IHWDBCursor_t, SWIG_POINTER_OWN);
@@ -9282,14 +9175,7 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_SetSubRecordSet(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWDBRecordSet_SetSubRecordSet" "', argument " "3"" of type '" "HWDBRecordSet const &""'"); 
   }
   arg3 = reinterpret_cast< HWDBRecordSet * >(argp3);
-  {
-    try {
-      result = (HWDBRecordSet *) &(arg1)->SetSubRecordSet((char const *)arg2,(HWDBRecordSet const &)*arg3); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBRecordSet *) &(arg1)->SetSubRecordSet((char const *)arg2,(HWDBRecordSet const &)*arg3);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9323,14 +9209,7 @@ SWIGINTERN PyObject *_wrap_HWDBRecordSet_GetSubRecordSet(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWDBRecordSet_GetSubRecordSet" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (HWDBRecordSet *) &((HWDBRecordSet const *)arg1)->GetSubRecordSet((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWDBRecordSet *) &((HWDBRecordSet const *)arg1)->GetSubRecordSet((char const *)arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9354,14 +9233,7 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_0(PyObject *self, int nobjs, PyObject **
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HWSQLCmd" "', argument " "1"" of type '" "char const *""'");
   }
   arg1 = reinterpret_cast< char * >(buf1);
-  {
-    try {
-      result = (HWSQLCmd *)new HWSQLCmd((char const *)arg1); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *)new HWSQLCmd((char const *)arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return resultobj == Py_None ? 1 : 0;
@@ -9376,14 +9248,7 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_1(PyObject *self, int nobjs, PyObject **
   HWSQLCmd *result = 0 ;
   
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
-  {
-    try {
-      result = (HWSQLCmd *)new HWSQLCmd(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *)new HWSQLCmd();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -9447,14 +9312,7 @@ SWIGINTERN PyObject *_wrap_delete_HWSQLCmd(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HWSQLCmd" "', argument " "1"" of type '" "HWSQLCmd *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -9476,14 +9334,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_IsNull(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_IsNull" "', argument " "1"" of type '" "HWSQLCmd const *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  {
-    try {
-      result = (bool)((HWSQLCmd const *)arg1)->IsNull(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (bool)((HWSQLCmd const *)arg1)->IsNull();
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -9505,14 +9356,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_Reset(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_Reset" "', argument " "1"" of type '" "HWSQLCmd *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  {
-    try {
-      result = (HWSQLCmd *) &(arg1)->Reset(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *) &(arg1)->Reset();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   return resultobj;
 fail:
@@ -9544,14 +9388,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_SetSQL(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_SetSQL" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (HWSQLCmd *) &(arg1)->SetSQL((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *) &(arg1)->SetSQL((char const *)arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9595,14 +9432,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_SetSubCmd(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWSQLCmd_SetSubCmd" "', argument " "3"" of type '" "HWSQLCmd const &""'"); 
   }
   arg3 = reinterpret_cast< HWSQLCmd * >(argp3);
-  {
-    try {
-      result = (HWSQLCmd *) &(arg1)->SetSubCmd((char const *)arg2,(HWSQLCmd const &)*arg3); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *) &(arg1)->SetSubCmd((char const *)arg2,(HWSQLCmd const &)*arg3);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9634,14 +9464,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_GetSubCmd__SWIG_0(PyObject *self, int nobjs,
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_GetSubCmd" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (HWSQLCmd *) &((HWSQLCmd const *)arg1)->GetSubCmd((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *) &((HWSQLCmd const *)arg1)->GetSubCmd((char const *)arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9673,14 +9496,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_GetSubCmd__SWIG_1(PyObject *self, int nobjs,
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_GetSubCmd" "', argument " "2"" of type '" "char const *""'");
   }
   arg2 = reinterpret_cast< char * >(buf2);
-  {
-    try {
-      result = (HWSQLCmd *) &(arg1)->GetSubCmd((char const *)arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (HWSQLCmd *) &(arg1)->GetSubCmd((char const *)arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, 0 |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
@@ -9735,14 +9551,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_Execute(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_Execute" "', argument " "2"" of type '" "IHWDBEnv *""'"); 
   }
   arg2 = reinterpret_cast< IHWDBEnv * >(argp2);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->Execute(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->Execute(arg2);
   resultobj = SWIG_NewPointerObj((new HWDBResult(static_cast< const HWDBResult& >(result))), SWIGTYPE_p_HWDBResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -9773,14 +9582,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_ExecuteRs(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HWSQLCmd_ExecuteRs" "', argument " "2"" of type '" "IHWDBEnv *""'"); 
   }
   arg2 = reinterpret_cast< IHWDBEnv * >(argp2);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->ExecuteRs(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->ExecuteRs(arg2);
   resultobj = SWIG_NewPointerObj((new HWDBRecordSet(static_cast< const HWDBRecordSet& >(result))), SWIGTYPE_p_HWDBRecordSet, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -9829,14 +9631,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_0(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "HWSQLCmd_DumpSQL" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = static_cast< int >(val4);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3,arg4); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3,arg4);
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
   return resultobj;
@@ -9879,14 +9674,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_1(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "HWSQLCmd_DumpSQL" "', argument " "3"" of type '" "char const *""'");
   }
   arg3 = reinterpret_cast< char * >(buf3);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2,(char const *)arg3);
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
   return resultobj;
@@ -9920,14 +9708,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_2(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "HWSQLCmd_DumpSQL" "', argument " "2"" of type '" "HWDBResult const &""'"); 
   }
   arg2 = reinterpret_cast< HWDBResult * >(argp2);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->DumpSQL((HWDBResult const &)*arg2);
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   return resultobj;
 fail:
@@ -9948,14 +9729,7 @@ SWIGINTERN PyObject *_wrap_HWSQLCmd_DumpSQL__SWIG_3(PyObject *self, int nobjs, P
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HWSQLCmd_DumpSQL" "', argument " "1"" of type '" "HWSQLCmd const *""'"); 
   }
   arg1 = reinterpret_cast< HWSQLCmd * >(argp1);
-  {
-    try {
-      result = ((HWSQLCmd const *)arg1)->DumpSQL(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = ((HWSQLCmd const *)arg1)->DumpSQL();
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
   return resultobj;
 fail:
@@ -10161,14 +9935,7 @@ SWIGINTERN int _wrap_new_SkillData(PyObject *self, PyObject *args) {
   SkillData *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillData",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (SkillData *)new SkillData(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (SkillData *)new SkillData();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillData, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10189,14 +9956,7 @@ SWIGINTERN PyObject *_wrap_delete_SkillData(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillData" "', argument " "1"" of type '" "SkillData *""'"); 
   }
   arg1 = reinterpret_cast< SkillData * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10372,14 +10132,7 @@ SWIGINTERN int _wrap_new_SkillResult(PyObject *self, PyObject *args) {
   SkillResult *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillResult",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (SkillResult *)new SkillResult(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (SkillResult *)new SkillResult();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillResult, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10400,14 +10153,7 @@ SWIGINTERN PyObject *_wrap_delete_SkillResult(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillResult" "', argument " "1"" of type '" "SkillResult *""'"); 
   }
   arg1 = reinterpret_cast< SkillResult * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10428,14 +10174,7 @@ SWIGINTERN PyObject *_wrap_delete_ISkillCallback(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ISkillCallback" "', argument " "1"" of type '" "ISkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ISkillCallback * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10469,14 +10208,7 @@ SWIGINTERN PyObject *_wrap_ISkillCallback_DoSkill(PyObject *self, PyObject *args
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ISkillCallback_DoSkill" "', argument " "2"" of type '" "SkillData &""'"); 
   }
   arg2 = reinterpret_cast< SkillData * >(argp2);
-  {
-    try {
-      result = (arg1)->DoSkill(*arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (arg1)->DoSkill(*arg2);
   resultobj = SWIG_NewPointerObj((new SkillResult(static_cast< const SkillResult& >(result))), SWIGTYPE_p_SkillResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -10497,14 +10229,7 @@ SWIGINTERN PyObject *_wrap_ISkillCallback_DoVoid(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ISkillCallback_DoVoid" "', argument " "1"" of type '" "ISkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ISkillCallback * >(argp1);
-  {
-    try {
-      (arg1)->DoVoid(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  (arg1)->DoVoid();
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10525,14 +10250,7 @@ SWIGINTERN PyObject *_wrap_delete_ScriptSkillCallback(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ScriptSkillCallback" "', argument " "1"" of type '" "ScriptSkillCallback *""'"); 
   }
   arg1 = reinterpret_cast< ScriptSkillCallback * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10548,20 +10266,14 @@ SWIGINTERN int _wrap_new_ScriptSkillCallback(PyObject *self, PyObject *args) {
   
   if (!SWIG_Python_UnpackTuple(args,"new_ScriptSkillCallback",0,0,0)) SWIG_fail;
   arg1 = self;
-  {
-    try {
-      if ( self->ob_type != ((SwigPyClientData*) (SWIGTYPE_p_ScriptSkillCallback)->clientdata)->pytype ) {
-        /* subclassed */
-        result = (ScriptSkillCallback *)new SwigDirector_ScriptSkillCallback(arg1); 
-      } else {
-        SWIG_SetErrorMsg(PyExc_RuntimeError,"accessing abstract class or protected constructor"); 
-        SWIG_fail;
-      }
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
+  if ( self->ob_type != ((SwigPyClientData*) (SWIGTYPE_p_ScriptSkillCallback)->clientdata)->pytype ) {
+    /* subclassed */
+    result = (ScriptSkillCallback *)new SwigDirector_ScriptSkillCallback(arg1); 
+  } else {
+    SWIG_SetErrorMsg(PyExc_RuntimeError,"accessing abstract class or protected constructor"); 
+    SWIG_fail;
   }
+  
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ScriptSkillCallback, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10595,6 +10307,43 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SkillCaller_TestString(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  SkillCaller *arg1 = (SkillCaller *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_SkillCaller, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SkillCaller_TestString" "', argument " "1"" of type '" "SkillCaller *""'"); 
+  }
+  arg1 = reinterpret_cast< SkillCaller * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SkillCaller_TestString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SkillCaller_TestString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->TestString((std::string const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_SkillCaller_SetCallback(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   SkillCaller *arg1 = (SkillCaller *) 0 ;
@@ -10620,14 +10369,7 @@ SWIGINTERN PyObject *_wrap_SkillCaller_SetCallback(PyObject *self, PyObject *arg
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SkillCaller_SetCallback" "', argument " "2"" of type '" "std::shared_ptr< ISkillCallback > &""'"); 
   }
   arg2 = reinterpret_cast< std::shared_ptr< ISkillCallback > * >(argp2);
-  {
-    try {
-      (arg1)->SetCallback(*arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  (arg1)->SetCallback(*arg2);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10658,14 +10400,7 @@ SWIGINTERN PyObject *_wrap_SkillCaller_SetPyCallback(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SkillCaller_SetPyCallback" "', argument " "2"" of type '" "ScriptSkillCallback *""'"); 
   }
   arg2 = reinterpret_cast< ScriptSkillCallback * >(argp2);
-  {
-    try {
-      result = (bool)(arg1)->SetPyCallback(arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (bool)(arg1)->SetPyCallback(arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
@@ -10699,14 +10434,7 @@ SWIGINTERN PyObject *_wrap_SkillCaller_Call(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SkillCaller_Call" "', argument " "2"" of type '" "SkillData &""'"); 
   }
   arg2 = reinterpret_cast< SkillData * >(argp2);
-  {
-    try {
-      result = (arg1)->Call(*arg2); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (arg1)->Call(*arg2);
   resultobj = SWIG_NewPointerObj((new SkillResult(static_cast< const SkillResult& >(result))), SWIGTYPE_p_SkillResult, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -10720,6 +10448,7 @@ SWIGINTERN PyObject *_wrap_SkillCaller_CallVoid(PyObject *self, PyObject *args) 
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
+  int *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"SkillCaller_CallVoid",0,0,0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_SkillCaller, 0 |  0 );
@@ -10727,15 +10456,8 @@ SWIGINTERN PyObject *_wrap_SkillCaller_CallVoid(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SkillCaller_CallVoid" "', argument " "1"" of type '" "SkillCaller *""'"); 
   }
   arg1 = reinterpret_cast< SkillCaller * >(argp1);
-  {
-    try {
-      (arg1)->CallVoid(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
-  resultobj = SWIG_Py_Void();
+  result = (int *)SkillCaller_CallVoid(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -10747,14 +10469,7 @@ SWIGINTERN int _wrap_new_SkillCaller(PyObject *self, PyObject *args) {
   SkillCaller *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"new_SkillCaller",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (SkillCaller *)new SkillCaller(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (SkillCaller *)new SkillCaller();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillCaller, SWIG_BUILTIN_INIT |  0 );
   return resultobj == Py_None ? 1 : 0;
 fail:
@@ -10775,14 +10490,7 @@ SWIGINTERN PyObject *_wrap_delete_SkillCaller(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SkillCaller" "', argument " "1"" of type '" "SkillCaller *""'"); 
   }
   arg1 = reinterpret_cast< SkillCaller * >(argp1);
-  {
-    try {
-      delete arg1; 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10820,15 +10528,345 @@ SWIGINTERN PyObject *_wrap_GetCaller(PyObject *self, PyObject *args) {
   SkillCaller *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args,"GetCaller",0,0,0)) SWIG_fail;
-  {
-    try {
-      result = (SkillCaller *)GetCaller(); 
-    }
-    catch(Swig::DirectorException &e) {
-      PyErr_SetString(PyExc_RuntimeError, e.getMessage());
-    }
-  }
+  result = (SkillCaller *)GetCaller();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillCaller, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StrFoo(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StrFoo",0,0,0)) SWIG_fail;
+  result = StrFoo();
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN int _wrap_new_StacklessClient(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject *swig_obj[2] ;
+  StacklessClient *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_StacklessClient",2,2,swig_obj)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_StacklessClient" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  arg2 = swig_obj[1];
+  result = (StacklessClient *)new StacklessClient(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_StacklessClient, SWIG_BUILTIN_INIT |  0 );
+  return resultobj == Py_None ? 1 : 0;
+fail:
+  return -1;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_StacklessClient(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"delete_StacklessClient",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_StacklessClient" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_SetupTasklet(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StacklessClient_SetupTasklet",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_SetupTasklet" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  result = (int)(arg1)->SetupTasklet();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_IsQuit(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StacklessClient_IsQuit",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_IsQuit" "', argument " "1"" of type '" "StacklessClient const *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  result = (bool)((StacklessClient const *)arg1)->IsQuit();
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_Receive(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  PyObject *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StacklessClient_Receive",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_Receive" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  result = (PyObject *)(arg1)->Receive();
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_Send(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_Send" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  arg2 = swig_obj[0];
+  result = (int)(arg1)->Send(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_Quit(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StacklessClient_Quit",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_Quit" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  (arg1)->Quit();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_CliEvent(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"delete_CliEvent",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_CliEvent, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_CliEvent" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CliEvent_type__set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_CliEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CliEvent_type__set" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[0], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CliEvent_type__set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->type_ = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CliEvent_type__get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"CliEvent_type__get",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_CliEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CliEvent_type__get" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  result = (int) ((arg1)->type_);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CliEvent_msg__set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[2] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_CliEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CliEvent_msg__set" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CliEvent_msg__set" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "CliEvent_msg__set" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  if (arg1) (arg1)->msg_ = *arg2;
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CliEvent_msg__get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *arg1 = (CliEvent *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"CliEvent_msg__get",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_CliEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CliEvent_msg__get" "', argument " "1"" of type '" "CliEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< CliEvent * >(argp1);
+  result = (std::string *) & ((arg1)->msg_);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN int _wrap_new_CliEvent(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  CliEvent *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_CliEvent",0,0,0)) SWIG_fail;
+  result = (CliEvent *)new CliEvent();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CliEvent, SWIG_BUILTIN_INIT |  0 );
+  return resultobj == Py_None ? 1 : 0;
+fail:
+  return -1;
+}
+
+
+SWIGINTERN PyObject *_wrap_MainLoop(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MainLoop" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  MainLoop(arg1);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -10837,6 +10875,9 @@ fail:
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
+	 { (char *)"SWIGNewCliEvent", (PyCFunction)_wrap_SWIGNewCliEvent, METH_O, NULL},
+	 { (char *)"SWIGConvertCliEvent", (PyCFunction)_wrap_SWIGConvertCliEvent, METH_O, NULL},
+	 { (char *)"SWIGNewStacklessClient", (PyCFunction)_wrap_SWIGNewStacklessClient, METH_O, NULL},
 	 { (char *)"GetStringVec", (PyCFunction)_wrap_GetStringVec, METH_NOARGS, NULL},
 	 { (char *)"GetConstStringVec", (PyCFunction)_wrap_GetConstStringVec, METH_NOARGS, NULL},
 	 { (char *)"GetIntVec", (PyCFunction)_wrap_GetIntVec, METH_NOARGS, NULL},
@@ -10846,6 +10887,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HWSQLCmd_Null_get", _wrap_HWSQLCmd_Null_get, METH_VARARGS, NULL},
 	 { (char *)"disown_ScriptSkillCallback", (PyCFunction)_wrap_disown_ScriptSkillCallback, METH_O, NULL},
 	 { (char *)"GetCaller", (PyCFunction)_wrap_GetCaller, METH_NOARGS, NULL},
+	 { (char *)"StrFoo", (PyCFunction)_wrap_StrFoo, METH_NOARGS, NULL},
+	 { (char *)"MainLoop", (PyCFunction)_wrap_MainLoop, METH_O, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -13068,6 +13111,7 @@ SwigPyBuiltin__SkillCaller_richcompare(PyObject *self, PyObject *other, int op) 
 }
 
 SWIGINTERN PyMethodDef SwigPyBuiltin__SkillCaller_methods[] = {
+  { "TestString", (PyCFunction) _wrap_SkillCaller_TestString, METH_O, (char*) "" },
   { "SetCallback", (PyCFunction) _wrap_SkillCaller_SetCallback, METH_O, (char*) "" },
   { "SetPyCallback", (PyCFunction) _wrap_SkillCaller_SetPyCallback, METH_O, (char*) "" },
   { "Call", (PyCFunction) _wrap_SkillCaller_Call, METH_O, (char*) "" },
@@ -13242,6 +13286,397 @@ static PyHeapTypeObject SwigPyBuiltin__SkillCaller_type = {
 
 SWIGINTERN SwigPyClientData SwigPyBuiltin__SkillCaller_clientdata = {0, 0, 0, 0, 0, 0, (PyTypeObject *)&SwigPyBuiltin__SkillCaller_type};
 
+SWIGPY_DESTRUCTOR_CLOSURE(_wrap_delete_StacklessClient)
+SWIGINTERN PyGetSetDef SwigPyBuiltin__StacklessClient_getset[] = {
+    {NULL, NULL, NULL, NULL, NULL} /* Sentinel */
+};
+
+SWIGINTERN PyObject *
+SwigPyBuiltin__StacklessClient_richcompare(PyObject *self, PyObject *other, int op) {
+  PyObject *result = NULL;
+  if (!result) {
+    if (SwigPyObject_Check(self) && SwigPyObject_Check(other)) {
+      result = SwigPyObject_richcompare((SwigPyObject *)self, (SwigPyObject *)other, op);
+    } else {
+      result = Py_NotImplemented;
+      Py_INCREF(result);
+    }
+  }
+  return result;
+}
+
+SWIGINTERN PyMethodDef SwigPyBuiltin__StacklessClient_methods[] = {
+  { "SetupTasklet", (PyCFunction) _wrap_StacklessClient_SetupTasklet, METH_NOARGS, (char*) "" },
+  { "IsQuit", (PyCFunction) _wrap_StacklessClient_IsQuit, METH_NOARGS, (char*) "" },
+  { "Receive", (PyCFunction) _wrap_StacklessClient_Receive, METH_NOARGS, (char*) "" },
+  { "Send", (PyCFunction) _wrap_StacklessClient_Send, METH_O, (char*) "" },
+  { "Quit", (PyCFunction) _wrap_StacklessClient_Quit, METH_NOARGS, (char*) "" },
+  { NULL, NULL, 0, NULL } /* Sentinel */
+};
+
+static PyHeapTypeObject SwigPyBuiltin__StacklessClient_type = {
+#if !defined(STACKLESS)
+  {
+#endif
+#if PY_VERSION_HEX >= 0x03000000
+    PyVarObject_HEAD_INIT(NULL, 0)
+#else
+    PyObject_HEAD_INIT(NULL)
+    0,                                        /* ob_size */
+#endif
+    "StacklessClient",                        /* tp_name */
+    sizeof(SwigPyObject),                     /* tp_basicsize */
+    0,                                        /* tp_itemsize */
+    (destructor) _wrap_delete_StacklessClient_closure, /* tp_dealloc */
+    (printfunc) 0,                            /* tp_print */
+    (getattrfunc) 0,                          /* tp_getattr */
+    (setattrfunc) 0,                          /* tp_setattr */
+#if PY_VERSION_HEX >= 0x03000000
+    0,                                        /* tp_compare */
+#else
+    (cmpfunc) 0,                              /* tp_compare */
+#endif
+    (reprfunc) 0,                             /* tp_repr */
+    &SwigPyBuiltin__StacklessClient_type.as_number,      /* tp_as_number */
+    &SwigPyBuiltin__StacklessClient_type.as_sequence,    /* tp_as_sequence */
+    &SwigPyBuiltin__StacklessClient_type.as_mapping,     /* tp_as_mapping */
+    (hashfunc) 0,                             /* tp_hash */
+    (ternaryfunc) 0,                          /* tp_call */
+    (reprfunc) 0,                             /* tp_str */
+    (getattrofunc) 0,                         /* tp_getattro */
+    (setattrofunc) 0,                         /* tp_setattro */
+    &SwigPyBuiltin__StacklessClient_type.as_buffer,      /* tp_as_buffer */
+#if PY_VERSION_HEX >= 0x03000000
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,   /* tp_flags */
+#else
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_CHECKTYPES, /* tp_flags */
+#endif
+    "::StacklessClient",                      /* tp_doc */
+    (traverseproc) 0,                         /* tp_traverse */
+    (inquiry) 0,                              /* tp_clear */
+    (richcmpfunc) SwigPyBuiltin__StacklessClient_richcompare, /* feature:python:tp_richcompare */
+    0,                                        /* tp_weaklistoffset */
+    (getiterfunc) 0,                          /* tp_iter */
+    (iternextfunc) 0,                         /* tp_iternext */
+    SwigPyBuiltin__StacklessClient_methods,   /* tp_methods */
+    0,                                        /* tp_members */
+    SwigPyBuiltin__StacklessClient_getset,    /* tp_getset */
+    0,                                        /* tp_base */
+    0,                                        /* tp_dict */
+    (descrgetfunc) 0,                         /* tp_descr_get */
+    (descrsetfunc) 0,                         /* tp_descr_set */
+    (size_t)(((char*)&((SwigPyObject *) 64L)->dict) - (char*) 64L), /* tp_dictoffset */
+    (initproc) _wrap_new_StacklessClient,     /* tp_init */
+    (allocfunc) 0,                            /* tp_alloc */
+    (newfunc) 0,                              /* tp_new */
+    (freefunc) 0,                             /* tp_free */
+    (inquiry) 0,                              /* tp_is_gc */
+    (PyObject*) 0,                            /* tp_bases */
+    (PyObject*) 0,                            /* tp_mro */
+    (PyObject*) 0,                            /* tp_cache */
+    (PyObject*) 0,                            /* tp_subclasses */
+    (PyObject*) 0,                            /* tp_weaklist */
+    (destructor) 0,                           /* tp_del */
+#if PY_VERSION_HEX >= 0x02060000
+    (int) 0,                                  /* tp_version_tag */
+#endif
+#if !defined(STACKLESS)
+  },
+#endif
+  {
+    (binaryfunc) 0,                           /* nb_add */
+    (binaryfunc) 0,                           /* nb_subtract */
+    (binaryfunc) 0,                           /* nb_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_remainder */
+    (binaryfunc) 0,                           /* nb_divmod */
+    (ternaryfunc) 0,                          /* nb_power */
+    (unaryfunc) 0,                            /* nb_negative */
+    (unaryfunc) 0,                            /* nb_positive */
+    (unaryfunc) 0,                            /* nb_absolute */
+    (inquiry) 0,                              /* nb_nonzero */
+    (unaryfunc) 0,                            /* nb_invert */
+    (binaryfunc) 0,                           /* nb_lshift */
+    (binaryfunc) 0,                           /* nb_rshift */
+    (binaryfunc) 0,                           /* nb_and */
+    (binaryfunc) 0,                           /* nb_xor */
+    (binaryfunc) 0,                           /* nb_or */
+#if PY_VERSION_HEX < 0x03000000
+    (coercion) 0,                             /* nb_coerce */
+#endif
+    (unaryfunc) 0,                            /* nb_int */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* nb_reserved */
+#else
+    (unaryfunc) 0,                            /* nb_long */
+#endif
+    (unaryfunc) 0,                            /* nb_float */
+#if PY_VERSION_HEX < 0x03000000
+    (unaryfunc) 0,                            /* nb_oct */
+    (unaryfunc) 0,                            /* nb_hex */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_add */
+    (binaryfunc) 0,                           /* nb_inplace_subtract */
+    (binaryfunc) 0,                           /* nb_inplace_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_inplace_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_remainder */
+    (ternaryfunc) 0,                          /* nb_inplace_power */
+    (binaryfunc) 0,                           /* nb_inplace_lshift */
+    (binaryfunc) 0,                           /* nb_inplace_rshift */
+    (binaryfunc) 0,                           /* nb_inplace_and */
+    (binaryfunc) 0,                           /* nb_inplace_xor */
+    (binaryfunc) 0,                           /* nb_inplace_or */
+    (binaryfunc) 0,                           /* nb_floor_divide */
+    (binaryfunc) 0,                           /* nb_true_divide */
+    (binaryfunc) 0,                           /* nb_inplace_floor_divide */
+    (binaryfunc) 0,                           /* nb_inplace_true_divide */
+#if PY_VERSION_HEX >= 0x02050000
+    (unaryfunc) 0,                            /* nb_index */
+#endif
+  },
+  {
+    (lenfunc) 0,                              /* mp_length */
+    (binaryfunc) 0,                           /* mp_subscript */
+    (objobjargproc) 0,                        /* mp_ass_subscript */
+  },
+  {
+    (lenfunc) 0,                              /* sq_length */
+    (binaryfunc) 0,                           /* sq_concat */
+    (ssizeargfunc) 0,                         /* sq_repeat */
+    (ssizeargfunc) 0,                         /* sq_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* was_sq_slice */
+#else
+    (ssizessizeargfunc) 0,                    /* sq_slice */
+#endif
+    (ssizeobjargproc) 0,                      /* sq_ass_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* was_sq_ass_slice */
+#else
+    (ssizessizeobjargproc) 0,                 /* sq_ass_slice */
+#endif
+    (objobjproc) 0,                           /* sq_contains */
+    (binaryfunc) 0,                           /* sq_inplace_concat */
+    (ssizeargfunc) 0,                         /* sq_inplace_repeat */
+  },
+  {
+#if PY_VERSION_HEX < 0x03000000
+    (readbufferproc) 0,                       /* bf_getreadbuffer */
+    (writebufferproc) 0,                      /* bf_getwritebuffer */
+    (segcountproc) 0,                         /* bf_getsegcount */
+    (charbufferproc) 0,                       /* bf_getcharbuffer */
+#endif
+#if PY_VERSION_HEX >= 0x02060000
+    (getbufferproc) 0,                        /* bf_getbuffer */
+    (releasebufferproc) 0,                    /* bf_releasebuffer */
+#endif
+  },
+    (PyObject*) 0,                            /* ht_name */
+    (PyObject*) 0,                            /* ht_slots */
+};
+
+SWIGINTERN SwigPyClientData SwigPyBuiltin__StacklessClient_clientdata = {0, 0, 0, 0, 0, 0, (PyTypeObject *)&SwigPyBuiltin__StacklessClient_type};
+
+SWIGPY_DESTRUCTOR_CLOSURE(_wrap_delete_CliEvent)
+static SwigPyGetSet CliEvent_type__getset = { _wrap_CliEvent_type__get, _wrap_CliEvent_type__set };
+static SwigPyGetSet CliEvent_msg__getset = { _wrap_CliEvent_msg__get, _wrap_CliEvent_msg__set };
+SWIGINTERN PyGetSetDef SwigPyBuiltin__CliEvent_getset[] = {
+    { (char*) "type_", (getter) SwigPyBuiltin_FunpackGetterClosure, (setter) SwigPyBuiltin_FunpackSetterClosure, (char*)"CliEvent.type_", (void*) &CliEvent_type__getset }
+,
+    { (char*) "msg_", (getter) SwigPyBuiltin_FunpackGetterClosure, (setter) SwigPyBuiltin_FunpackSetterClosure, (char*)"CliEvent.msg_", (void*) &CliEvent_msg__getset }
+,
+    {NULL, NULL, NULL, NULL, NULL} /* Sentinel */
+};
+
+SWIGINTERN PyObject *
+SwigPyBuiltin__CliEvent_richcompare(PyObject *self, PyObject *other, int op) {
+  PyObject *result = NULL;
+  if (!result) {
+    if (SwigPyObject_Check(self) && SwigPyObject_Check(other)) {
+      result = SwigPyObject_richcompare((SwigPyObject *)self, (SwigPyObject *)other, op);
+    } else {
+      result = Py_NotImplemented;
+      Py_INCREF(result);
+    }
+  }
+  return result;
+}
+
+SWIGINTERN PyMethodDef SwigPyBuiltin__CliEvent_methods[] = {
+  { NULL, NULL, 0, NULL } /* Sentinel */
+};
+
+static PyHeapTypeObject SwigPyBuiltin__CliEvent_type = {
+#if !defined(STACKLESS)
+  {
+#endif
+#if PY_VERSION_HEX >= 0x03000000
+    PyVarObject_HEAD_INIT(NULL, 0)
+#else
+    PyObject_HEAD_INIT(NULL)
+    0,                                        /* ob_size */
+#endif
+    "CliEvent",                               /* tp_name */
+    sizeof(SwigPyObject),                     /* tp_basicsize */
+    0,                                        /* tp_itemsize */
+    (destructor) _wrap_delete_CliEvent_closure, /* tp_dealloc */
+    (printfunc) 0,                            /* tp_print */
+    (getattrfunc) 0,                          /* tp_getattr */
+    (setattrfunc) 0,                          /* tp_setattr */
+#if PY_VERSION_HEX >= 0x03000000
+    0,                                        /* tp_compare */
+#else
+    (cmpfunc) 0,                              /* tp_compare */
+#endif
+    (reprfunc) 0,                             /* tp_repr */
+    &SwigPyBuiltin__CliEvent_type.as_number,      /* tp_as_number */
+    &SwigPyBuiltin__CliEvent_type.as_sequence,    /* tp_as_sequence */
+    &SwigPyBuiltin__CliEvent_type.as_mapping,     /* tp_as_mapping */
+    (hashfunc) 0,                             /* tp_hash */
+    (ternaryfunc) 0,                          /* tp_call */
+    (reprfunc) 0,                             /* tp_str */
+    (getattrofunc) 0,                         /* tp_getattro */
+    (setattrofunc) 0,                         /* tp_setattro */
+    &SwigPyBuiltin__CliEvent_type.as_buffer,      /* tp_as_buffer */
+#if PY_VERSION_HEX >= 0x03000000
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,   /* tp_flags */
+#else
+    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_CHECKTYPES, /* tp_flags */
+#endif
+    "::CliEvent",                             /* tp_doc */
+    (traverseproc) 0,                         /* tp_traverse */
+    (inquiry) 0,                              /* tp_clear */
+    (richcmpfunc) SwigPyBuiltin__CliEvent_richcompare, /* feature:python:tp_richcompare */
+    0,                                        /* tp_weaklistoffset */
+    (getiterfunc) 0,                          /* tp_iter */
+    (iternextfunc) 0,                         /* tp_iternext */
+    SwigPyBuiltin__CliEvent_methods,          /* tp_methods */
+    0,                                        /* tp_members */
+    SwigPyBuiltin__CliEvent_getset,           /* tp_getset */
+    0,                                        /* tp_base */
+    0,                                        /* tp_dict */
+    (descrgetfunc) 0,                         /* tp_descr_get */
+    (descrsetfunc) 0,                         /* tp_descr_set */
+    (size_t)(((char*)&((SwigPyObject *) 64L)->dict) - (char*) 64L), /* tp_dictoffset */
+    (initproc) _wrap_new_CliEvent,            /* tp_init */
+    (allocfunc) 0,                            /* tp_alloc */
+    (newfunc) 0,                              /* tp_new */
+    (freefunc) 0,                             /* tp_free */
+    (inquiry) 0,                              /* tp_is_gc */
+    (PyObject*) 0,                            /* tp_bases */
+    (PyObject*) 0,                            /* tp_mro */
+    (PyObject*) 0,                            /* tp_cache */
+    (PyObject*) 0,                            /* tp_subclasses */
+    (PyObject*) 0,                            /* tp_weaklist */
+    (destructor) 0,                           /* tp_del */
+#if PY_VERSION_HEX >= 0x02060000
+    (int) 0,                                  /* tp_version_tag */
+#endif
+#if !defined(STACKLESS)
+  },
+#endif
+  {
+    (binaryfunc) 0,                           /* nb_add */
+    (binaryfunc) 0,                           /* nb_subtract */
+    (binaryfunc) 0,                           /* nb_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_remainder */
+    (binaryfunc) 0,                           /* nb_divmod */
+    (ternaryfunc) 0,                          /* nb_power */
+    (unaryfunc) 0,                            /* nb_negative */
+    (unaryfunc) 0,                            /* nb_positive */
+    (unaryfunc) 0,                            /* nb_absolute */
+    (inquiry) 0,                              /* nb_nonzero */
+    (unaryfunc) 0,                            /* nb_invert */
+    (binaryfunc) 0,                           /* nb_lshift */
+    (binaryfunc) 0,                           /* nb_rshift */
+    (binaryfunc) 0,                           /* nb_and */
+    (binaryfunc) 0,                           /* nb_xor */
+    (binaryfunc) 0,                           /* nb_or */
+#if PY_VERSION_HEX < 0x03000000
+    (coercion) 0,                             /* nb_coerce */
+#endif
+    (unaryfunc) 0,                            /* nb_int */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* nb_reserved */
+#else
+    (unaryfunc) 0,                            /* nb_long */
+#endif
+    (unaryfunc) 0,                            /* nb_float */
+#if PY_VERSION_HEX < 0x03000000
+    (unaryfunc) 0,                            /* nb_oct */
+    (unaryfunc) 0,                            /* nb_hex */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_add */
+    (binaryfunc) 0,                           /* nb_inplace_subtract */
+    (binaryfunc) 0,                           /* nb_inplace_multiply */
+#if PY_VERSION_HEX < 0x03000000
+    (binaryfunc) 0,                           /* nb_inplace_divide */
+#endif
+    (binaryfunc) 0,                           /* nb_inplace_remainder */
+    (ternaryfunc) 0,                          /* nb_inplace_power */
+    (binaryfunc) 0,                           /* nb_inplace_lshift */
+    (binaryfunc) 0,                           /* nb_inplace_rshift */
+    (binaryfunc) 0,                           /* nb_inplace_and */
+    (binaryfunc) 0,                           /* nb_inplace_xor */
+    (binaryfunc) 0,                           /* nb_inplace_or */
+    (binaryfunc) 0,                           /* nb_floor_divide */
+    (binaryfunc) 0,                           /* nb_true_divide */
+    (binaryfunc) 0,                           /* nb_inplace_floor_divide */
+    (binaryfunc) 0,                           /* nb_inplace_true_divide */
+#if PY_VERSION_HEX >= 0x02050000
+    (unaryfunc) 0,                            /* nb_index */
+#endif
+  },
+  {
+    (lenfunc) 0,                              /* mp_length */
+    (binaryfunc) 0,                           /* mp_subscript */
+    (objobjargproc) 0,                        /* mp_ass_subscript */
+  },
+  {
+    (lenfunc) 0,                              /* sq_length */
+    (binaryfunc) 0,                           /* sq_concat */
+    (ssizeargfunc) 0,                         /* sq_repeat */
+    (ssizeargfunc) 0,                         /* sq_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* was_sq_slice */
+#else
+    (ssizessizeargfunc) 0,                    /* sq_slice */
+#endif
+    (ssizeobjargproc) 0,                      /* sq_ass_item */
+#if PY_VERSION_HEX >= 0x03000000
+    (void*) 0,                                /* was_sq_ass_slice */
+#else
+    (ssizessizeobjargproc) 0,                 /* sq_ass_slice */
+#endif
+    (objobjproc) 0,                           /* sq_contains */
+    (binaryfunc) 0,                           /* sq_inplace_concat */
+    (ssizeargfunc) 0,                         /* sq_inplace_repeat */
+  },
+  {
+#if PY_VERSION_HEX < 0x03000000
+    (readbufferproc) 0,                       /* bf_getreadbuffer */
+    (writebufferproc) 0,                      /* bf_getwritebuffer */
+    (segcountproc) 0,                         /* bf_getsegcount */
+    (charbufferproc) 0,                       /* bf_getcharbuffer */
+#endif
+#if PY_VERSION_HEX >= 0x02060000
+    (getbufferproc) 0,                        /* bf_getbuffer */
+    (releasebufferproc) 0,                    /* bf_releasebuffer */
+#endif
+  },
+    (PyObject*) 0,                            /* ht_name */
+    (PyObject*) 0,                            /* ht_slots */
+};
+
+SWIGINTERN SwigPyClientData SwigPyBuiltin__CliEvent_clientdata = {0, 0, 0, 0, 0, 0, (PyTypeObject *)&SwigPyBuiltin__CliEvent_type};
+
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
@@ -13251,6 +13686,7 @@ static void *_p_ScriptSkillCallbackTo_p_ISkillCallback(void *x, int *SWIGUNUSEDP
 static void *_p_HWDBRecordSetTo_p_HWDBResult(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((HWDBResult *)  ((HWDBRecordSet *) x));
 }
+static swig_type_info _swigt__p_CliEvent = {"_p_CliEvent", "CliEvent *", 0, 0, (void*)&SwigPyBuiltin__CliEvent_clientdata, 0};
 static swig_type_info _swigt__p_HWDBRecordSet = {"_p_HWDBRecordSet", "HWDBRecordSet *", 0, 0, (void*)&SwigPyBuiltin__HWDBRecordSet_clientdata, 0};
 static swig_type_info _swigt__p_HWDBResult = {"_p_HWDBResult", "HWDBResult *", 0, 0, (void*)&SwigPyBuiltin__HWDBResult_clientdata, 0};
 static swig_type_info _swigt__p_HWSQLCmd = {"_p_HWSQLCmd", "HWSQLCmd *", 0, 0, (void*)&SwigPyBuiltin__HWSQLCmd_clientdata, 0};
@@ -13261,6 +13697,7 @@ static swig_type_info _swigt__p_ScriptSkillCallback = {"_p_ScriptSkillCallback",
 static swig_type_info _swigt__p_SkillCaller = {"_p_SkillCaller", "SkillCaller *", 0, 0, (void*)&SwigPyBuiltin__SkillCaller_clientdata, 0};
 static swig_type_info _swigt__p_SkillData = {"_p_SkillData", "SkillData *", 0, 0, (void*)&SwigPyBuiltin__SkillData_clientdata, 0};
 static swig_type_info _swigt__p_SkillResult = {"_p_SkillResult", "SkillResult *", 0, 0, (void*)&SwigPyBuiltin__SkillResult_clientdata, 0};
+static swig_type_info _swigt__p_StacklessClient = {"_p_StacklessClient", "StacklessClient *", 0, 0, (void*)&SwigPyBuiltin__StacklessClient_clientdata, 0};
 static swig_type_info _swigt__p_SwigPyObject = {"_p_SwigPyObject", "SwigPyObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p___int64 = {"_p___int64", "__int64 *|LONGLONG *|LONG64 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_allocator_type = {"_p_allocator_type", "allocator_type *", 0, 0, (void*)0, 0};
@@ -13291,6 +13728,7 @@ static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "WORD *|U
 static swig_type_info _swigt__p_value_type = {"_p_value_type", "value_type *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_CliEvent,
   &_swigt__p_HWDBRecordSet,
   &_swigt__p_HWDBResult,
   &_swigt__p_HWSQLCmd,
@@ -13301,6 +13739,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_SkillCaller,
   &_swigt__p_SkillData,
   &_swigt__p_SkillResult,
+  &_swigt__p_StacklessClient,
   &_swigt__p_SwigPyObject,
   &_swigt__p___int64,
   &_swigt__p_allocator_type,
@@ -13331,6 +13770,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_value_type,
 };
 
+static swig_cast_info _swigc__p_CliEvent[] = {  {&_swigt__p_CliEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_HWDBRecordSet[] = {  {&_swigt__p_HWDBRecordSet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_HWDBResult[] = {  {&_swigt__p_HWDBResult, 0, 0, 0},  {&_swigt__p_HWDBRecordSet, _p_HWDBRecordSetTo_p_HWDBResult, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_HWSQLCmd[] = {  {&_swigt__p_HWSQLCmd, 0, 0, 0},{0, 0, 0, 0}};
@@ -13341,6 +13781,7 @@ static swig_cast_info _swigc__p_ScriptSkillCallback[] = {  {&_swigt__p_ScriptSki
 static swig_cast_info _swigc__p_SkillCaller[] = {  {&_swigt__p_SkillCaller, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SkillData[] = {  {&_swigt__p_SkillData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SkillResult[] = {  {&_swigt__p_SkillResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_StacklessClient[] = {  {&_swigt__p_StacklessClient, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SwigPyObject[] = {  {&_swigt__p_SwigPyObject, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p___int64[] = {  {&_swigt__p___int64, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_allocator_type[] = {  {&_swigt__p_allocator_type, 0, 0, 0},{0, 0, 0, 0}};
@@ -13371,6 +13812,7 @@ static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short
 static swig_cast_info _swigc__p_value_type[] = {  {&_swigt__p_value_type, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_CliEvent,
   _swigc__p_HWDBRecordSet,
   _swigc__p_HWDBResult,
   _swigc__p_HWSQLCmd,
@@ -13381,6 +13823,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_SkillCaller,
   _swigc__p_SkillData,
   _swigc__p_SkillResult,
+  _swigc__p_StacklessClient,
   _swigc__p_SwigPyObject,
   _swigc__p___int64,
   _swigc__p_allocator_type,
@@ -14411,6 +14854,52 @@ SWIG_init(void) {
   SwigPyBuiltin_AddPublicSymbol(public_interface, "SkillCaller");
   d = md;
   SWIG_addvarlink(SWIG_globals(),(char*)"g_caller",Swig_var_g_caller_get, Swig_var_g_caller_set);
+  
+  /* type '::StacklessClient' */
+  builtin_pytype = (PyTypeObject *)&SwigPyBuiltin__StacklessClient_type;
+  builtin_pytype->tp_dict = d = PyDict_New();
+  SwigPyBuiltin_SetMetaType(builtin_pytype, metatype);
+  builtin_pytype->tp_new = PyType_GenericNew;
+  builtin_base_count = 0;
+  builtin_bases[builtin_base_count] = NULL;
+  SwigPyBuiltin_InitBases(builtin_pytype, builtin_bases);
+  PyDict_SetItemString(d, "this", this_descr);
+  PyDict_SetItemString(d, "thisown", thisown_descr);
+  if (PyType_Ready(builtin_pytype) < 0) {
+    PyErr_SetString(PyExc_TypeError, "Could not create type 'StacklessClient'.");
+#if PY_VERSION_HEX >= 0x03000000
+    return NULL;
+#else
+    return;
+#endif
+  }
+  Py_INCREF(builtin_pytype);
+  PyModule_AddObject(m, "StacklessClient", (PyObject*) builtin_pytype);
+  SwigPyBuiltin_AddPublicSymbol(public_interface, "StacklessClient");
+  d = md;
+  
+  /* type '::CliEvent' */
+  builtin_pytype = (PyTypeObject *)&SwigPyBuiltin__CliEvent_type;
+  builtin_pytype->tp_dict = d = PyDict_New();
+  SwigPyBuiltin_SetMetaType(builtin_pytype, metatype);
+  builtin_pytype->tp_new = PyType_GenericNew;
+  builtin_base_count = 0;
+  builtin_bases[builtin_base_count] = NULL;
+  SwigPyBuiltin_InitBases(builtin_pytype, builtin_bases);
+  PyDict_SetItemString(d, "this", this_descr);
+  PyDict_SetItemString(d, "thisown", thisown_descr);
+  if (PyType_Ready(builtin_pytype) < 0) {
+    PyErr_SetString(PyExc_TypeError, "Could not create type 'CliEvent'.");
+#if PY_VERSION_HEX >= 0x03000000
+    return NULL;
+#else
+    return;
+#endif
+  }
+  Py_INCREF(builtin_pytype);
+  PyModule_AddObject(m, "CliEvent", (PyObject*) builtin_pytype);
+  SwigPyBuiltin_AddPublicSymbol(public_interface, "CliEvent");
+  d = md;
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else

@@ -246,3 +246,8 @@ SkillCaller* GetCaller()
 {
 	return g_caller;
 }
+
+std::string StrFoo()
+{
+    return "Hahahaha";
+}
