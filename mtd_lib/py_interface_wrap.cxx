@@ -758,6 +758,7 @@ SWIG_UnpackDataName(const char *c, void *ptr, size_t sz, const char *name) {
 #define PyClass_Check(obj) PyObject_IsInstance(obj, (PyObject *)&PyType_Type)
 #define PyInt_Check(x) PyLong_Check(x)
 #define PyInt_AsLong(x) PyLong_AsLong(x)
+#define PyInt_AsUnsignedLongMask(x) PyLong_AsUnsignedLongMask(x)
 #define PyInt_FromLong(x) PyLong_FromLong(x)
 #define PyString_Check(name) PyBytes_Check(name)
 #define PyString_FromString(x) PyUnicode_FromString(x)
@@ -1225,7 +1226,7 @@ SWIG_Python_SetErrorObj(PyObject *errtype, PyObject *obj) {
 SWIGINTERN void 
 SWIG_Python_SetErrorMsg(PyObject *errtype, const char *msg) {
   SWIG_PYTHON_THREAD_BEGIN_BLOCK;
-  PyErr_SetString(errtype, (char *) msg);
+  PyErr_SetString(errtype, msg);
   SWIG_PYTHON_THREAD_END_BLOCK;
 }
 
@@ -1244,7 +1245,11 @@ SwigPyBuiltin_AddPublicSymbol(PyObject *seq, const char *key) {
 
 SWIGINTERN void
 SWIG_Python_SetConstant(PyObject *d, PyObject *public_interface, const char *name, PyObject *obj) {   
+#if PY_VERSION_HEX < 0x02030000
   PyDict_SetItemString(d, (char *)name, obj);
+#else
+  PyDict_SetItemString(d, name, obj);
+#endif
   Py_DECREF(obj);
   if (public_interface)
     SwigPyBuiltin_AddPublicSymbol(public_interface, name);
@@ -1254,7 +1259,11 @@ SWIG_Python_SetConstant(PyObject *d, PyObject *public_interface, const char *nam
 
 SWIGINTERN void
 SWIG_Python_SetConstant(PyObject *d, const char *name, PyObject *obj) {   
+#if PY_VERSION_HEX < 0x02030000
   PyDict_SetItemString(d, (char *)name, obj);
+#else
+  PyDict_SetItemString(d, name, obj);
+#endif
   Py_DECREF(obj);                            
 }
 
@@ -1779,8 +1788,10 @@ SwigPyObject_own(PyObject *v, PyObject *args)
   PyObject *val = 0;
 #if (PY_VERSION_HEX < 0x02020000)
   if (!PyArg_ParseTuple(args,(char *)"|O:own",&val))
-#else
+#elif (PY_VERSION_HEX < 0x02050000)
   if (!PyArg_UnpackTuple(args, (char *)"own", 0, 1, &val)) 
+#else
+  if (!PyArg_UnpackTuple(args, "own", 0, 1, &val)) 
 #endif
     {
       return NULL;
@@ -2542,7 +2553,7 @@ SWIG_Python_SetSwigThis(PyObject *inst, PyObject *swig_this)
 SWIGINTERN PyObject *
 SWIG_Python_InitShadowInstance(PyObject *args) {
   PyObject *obj[2];
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swiginit", 2, 2, obj)) {
+  if (!SWIG_Python_UnpackTuple(args, "swiginit", 2, 2, obj)) {
     return NULL;
   } else {
     SwigPyObject *sthis = SWIG_Python_GetSwigThis(obj[0]);
@@ -2818,7 +2829,7 @@ SwigPyObject_GetDesc(PyObject *self)
 {
   SwigPyObject *v = (SwigPyObject *)self;
   swig_type_info *ty = v ? v->ty : 0;
-  return ty ? ty->str : (char*)"";
+  return ty ? ty->str : "";
 }
 
 SWIGRUNTIME void
@@ -2875,6 +2886,7 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int SWIGUNUSEDPARM(arg
   return result;
 }
 
+#ifdef SWIGPYTHON_BUILTIN
 SWIGRUNTIME int
 SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
   PyTypeObject *tp = obj->ob_type;
@@ -2883,15 +2895,15 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
   descrsetfunc f;
   int res;
 
-#ifdef Py_USING_UNICODE
+# ifdef Py_USING_UNICODE
   if (PyString_Check(name)) {
     name = PyUnicode_Decode(PyString_AsString(name), PyString_Size(name), NULL, NULL);
     if (!name)
       return -1;
   } else if (!PyUnicode_Check(name))
-#else
+# else
   if (!PyString_Check(name))
-#endif
+# endif
   {
     PyErr_Format(PyExc_TypeError, "attribute name must be string, not '%.200s'", name->ob_type->tp_name);
     return -1;
@@ -2926,6 +2938,7 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
   Py_DECREF(name);
   return res;
 }
+#endif
 
 
 #ifdef __cplusplus
@@ -2947,6 +2960,7 @@ wrapper##_closure(PyObject *a) {		\
 	PyObject *o = wrapper(a, NULL);		\
 	Py_XDECREF(o);				\
     }						\
+    PyObject_Del(a);				\
 }
 
 #define SWIGPY_INQUIRY_CLOSURE(wrapper)				\
@@ -2973,6 +2987,8 @@ wrapper##_closure(PyObject *a, PyObject *b) {	\
     return result;				\
 }
 
+typedef ternaryfunc ternarycallfunc;
+
 #define SWIGPY_TERNARYFUNC_CLOSURE(wrapper)			\
 SWIGINTERN PyObject *						\
 wrapper##_closure(PyObject *a, PyObject *b, PyObject *c) {	\
@@ -2986,6 +3002,12 @@ wrapper##_closure(PyObject *a, PyObject *b, PyObject *c) {	\
     result = wrapper(a, tuple);					\
     Py_DECREF(tuple);						\
     return result;						\
+}
+
+#define SWIGPY_TERNARYCALLFUNC_CLOSURE(wrapper)			\
+SWIGINTERN PyObject *						\
+wrapper##_closure(PyObject *callable_object, PyObject *args, PyObject *) {	\
+    return wrapper(callable_object, args);			\
 }
 
 #define SWIGPY_LENFUNC_CLOSURE(wrapper)			\
@@ -3435,6 +3457,7 @@ SwigPyBuiltin_SetMetaType (PyTypeObject *type, PyTypeObject *metatype)
 
 
 
+
 #define SWIG_exception_fail(code, msg) do { SWIG_Error(code, msg); SWIG_fail; } while(0) 
 
 #define SWIG_contract_assert(expr, msg) if (!(expr)) { SWIG_Error(SWIG_RuntimeError, msg); SWIG_fail; } else 
@@ -3695,7 +3718,7 @@ namespace Swig {
       std::cerr << "This exception was caught by the SWIG unexpected exception handler." << std::endl
                 << "Try using %feature(\"director:except\") to avoid reaching this point." << std::endl
                 << std::endl
-                << "Exception is being re-thrown, program will like abort/terminate." << std::endl;
+                << "Exception is being re-thrown, program will likely abort/terminate." << std::endl;
       throw;
     }
 
@@ -4081,13 +4104,10 @@ namespace swig {
 }
 
 
-  #define SWIG_From_long   PyInt_FromLong 
-
-
-SWIGINTERNINLINE PyObject *
-SWIG_From_int  (int value)
-{    
-  return SWIG_From_long  (value);
+SWIGINTERNINLINE PyObject*
+  SWIG_From_int  (int value)
+{
+  return PyInt_FromLong((long) value);
 }
 
 
@@ -4336,13 +4356,12 @@ SWIGINTERN int
 SWIG_AsVal_unsigned_SS_long (PyObject *obj, unsigned long *val) 
 {
   if (PyInt_Check(obj)) {
-    long v = PyInt_AsLong(obj);
-    if (v >= 0) {
+    unsigned long v = PyInt_AsUnsignedLongMask(obj);
+    if (!PyErr_Occurred()) {
       if (val) *val = v;
       return SWIG_OK;
-    } else {
-      return SWIG_OverflowError;
     }
+    PyErr_Clear();
   } else if (PyLong_Check(obj)) {
     unsigned long v = PyLong_AsUnsignedLong(obj);
     if (!PyErr_Occurred()) {
@@ -4384,6 +4403,9 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
   if (SWIG_IsOK(res) && val) *val = static_cast< size_t >(v);
   return res;
 }
+
+
+  #define SWIG_From_long   PyLong_FromLong 
 
 
 SWIGINTERNINLINE PyObject *
@@ -5528,7 +5550,7 @@ SWIGINTERNINLINE PyObject*
 SWIG_From_unsigned_SS_long  (unsigned long value)
 {
   return (value > LONG_MAX) ?
-    PyLong_FromUnsignedLong(value) : PyInt_FromLong(static_cast< long >(value)); 
+    PyLong_FromUnsignedLong(value) : PyLong_FromLong(static_cast< long >(value)); 
 }
 
 
@@ -5823,7 +5845,7 @@ SkillResult SwigDirector_ScriptSkillCallback::DoSkill(SkillData &data) {
   PyObject* method = swig_get_method(swig_method_index, swig_method_name);
   swig::SwigVar_PyObject result = PyObject_CallFunctionObjArgs(method ,(PyObject *)obj0, NULL);
 #else
-  swig::SwigVar_PyObject swig_method_name = SWIG_Python_str_FromChar((char *)"DoSkill");
+  swig::SwigVar_PyObject swig_method_name = SWIG_Python_str_FromChar((char *)"result");
   swig::SwigVar_PyObject result = PyObject_CallMethodObjArgs(swig_get_self(), (PyObject *) swig_method_name ,(PyObject *)obj0, NULL);
 #endif
   if (!result) {
@@ -7042,7 +7064,7 @@ SWIGINTERN PyObject *_wrap_vectori___getitem____SWIG_0(PyObject *self, int nobjs
     SWIG_exception_fail(SWIG_IndexError, (&_e)->what());
   }
   
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -7390,7 +7412,7 @@ SWIGINTERN int _wrap_new_vectori__SWIG_0(PyObject *self, int nobjs, PyObject **S
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   result = (std::vector< int > *)new std::vector< int >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -7417,7 +7439,7 @@ SWIGINTERN int _wrap_new_vectori__SWIG_1(PyObject *self, int nobjs, PyObject **s
   result = (std::vector< int > *)new std::vector< int >((std::vector< int > const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, SWIG_BUILTIN_INIT |  0 );
   if (SWIG_IsNewObj(res1)) delete arg1;
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   if (SWIG_IsNewObj(res1)) delete arg1;
   return -1;
@@ -7651,7 +7673,7 @@ SWIGINTERN int _wrap_new_vectori__SWIG_2(PyObject *self, int nobjs, PyObject **s
   arg1 = static_cast< std::vector< int >::size_type >(val1);
   result = (std::vector< int > *)new std::vector< int >(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -7839,7 +7861,7 @@ SWIGINTERN int _wrap_new_vectori__SWIG_3(PyObject *self, int nobjs, PyObject **s
   arg2 = &temp2;
   result = (std::vector< int > *)new std::vector< int >(arg1,(std::vector< int >::value_type const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__vectorT_int_std__allocatorT_int_t_t, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -8797,7 +8819,7 @@ SWIGINTERN int _wrap_new_HWDBResult(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBResult",0,0,0)) SWIG_fail;
   result = (HWDBResult *)new HWDBResult();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBResult, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -9005,7 +9027,7 @@ SWIGINTERN int _wrap_new_HWDBRecordSet(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_HWDBRecordSet",0,0,0)) SWIG_fail;
   result = (HWDBRecordSet *)new HWDBRecordSet();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWDBRecordSet, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -9236,7 +9258,7 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_0(PyObject *self, int nobjs, PyObject **
   result = (HWSQLCmd *)new HWSQLCmd((char const *)arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
   return -1;
@@ -9250,7 +9272,7 @@ SWIGINTERN int _wrap_new_HWSQLCmd__SWIG_1(PyObject *self, int nobjs, PyObject **
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   result = (HWSQLCmd *)new HWSQLCmd();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_HWSQLCmd, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -9937,7 +9959,7 @@ SWIGINTERN int _wrap_new_SkillData(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_SkillData",0,0,0)) SWIG_fail;
   result = (SkillData *)new SkillData();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillData, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -10134,7 +10156,7 @@ SWIGINTERN int _wrap_new_SkillResult(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_SkillResult",0,0,0)) SWIG_fail;
   result = (SkillResult *)new SkillResult();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillResult, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -10275,7 +10297,7 @@ SWIGINTERN int _wrap_new_ScriptSkillCallback(PyObject *self, PyObject *args) {
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ScriptSkillCallback, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -10471,7 +10493,7 @@ SWIGINTERN int _wrap_new_SkillCaller(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_SkillCaller",0,0,0)) SWIG_fail;
   result = (SkillCaller *)new SkillCaller();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SkillCaller, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -10567,7 +10589,7 @@ SWIGINTERN int _wrap_new_StacklessClient(PyObject *self, PyObject *args) {
   arg2 = swig_obj[1];
   result = (StacklessClient *)new StacklessClient(arg1,arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_StacklessClient, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -10700,6 +10722,28 @@ SWIGINTERN PyObject *_wrap_StacklessClient_Quit(PyObject *self, PyObject *args) 
   arg1 = reinterpret_cast< StacklessClient * >(argp1);
   (arg1)->Quit();
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StacklessClient_RoleId(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  StacklessClient *arg1 = (StacklessClient *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StacklessClient_RoleId",0,0,0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_StacklessClient, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StacklessClient_RoleId" "', argument " "1"" of type '" "StacklessClient *""'"); 
+  }
+  arg1 = reinterpret_cast< StacklessClient * >(argp1);
+  result = (int)(arg1)->RoleId();
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -10845,7 +10889,7 @@ SWIGINTERN int _wrap_new_CliEvent(PyObject *self, PyObject *args) {
   if (!SWIG_Python_UnpackTuple(args,"new_CliEvent",0,0,0)) SWIG_fail;
   result = (CliEvent *)new CliEvent();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CliEvent, SWIG_BUILTIN_INIT |  0 );
-  return resultobj == Py_None ? 1 : 0;
+  return resultobj == Py_None ? -1 : 0;
 fail:
   return -1;
 }
@@ -13311,6 +13355,7 @@ SWIGINTERN PyMethodDef SwigPyBuiltin__StacklessClient_methods[] = {
   { "Receive", (PyCFunction) _wrap_StacklessClient_Receive, METH_NOARGS, (char*) "" },
   { "Send", (PyCFunction) _wrap_StacklessClient_Send, METH_O, (char*) "" },
   { "Quit", (PyCFunction) _wrap_StacklessClient_Quit, METH_NOARGS, (char*) "" },
+  { "RoleId", (PyCFunction) _wrap_StacklessClient_RoleId, METH_NOARGS, (char*) "" },
   { NULL, NULL, 0, NULL } /* Sentinel */
 };
 

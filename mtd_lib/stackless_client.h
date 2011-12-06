@@ -9,8 +9,8 @@ class MTD_API StacklessClient
 {
 private:
     static PyObject *main_loop_;
-    PyObject* channel_;
     int roleid_;
+    PyObject* channel_;
     bool is_quit_;
 public:
     StacklessClient(int roleid, PyObject* ch);
@@ -26,6 +26,8 @@ public:
     int Send(PyObject* ev);
     
     void Quit();
+
+    int RoleId();
 };
 
 class CliEvent

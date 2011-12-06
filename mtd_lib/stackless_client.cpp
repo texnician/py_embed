@@ -91,6 +91,11 @@ int StacklessClient::Send(PyObject* ev)
     return 0;
 }
 
+int StacklessClient::RoleId()
+{
+    return roleid_;
+}
+
 void MainLoop(StacklessClient* self)
 {
     while(!self->IsQuit()) {
@@ -100,12 +105,18 @@ void MainLoop(StacklessClient* self)
             switch (ev->type_) {
             case 0:
                 self->Quit();
+                printf("Normal quit %d\n", self->RoleId());
                 break;
             default:
-                printf("type: %d, msg: %s", ev->type_, ev->msg_.c_str());
+                printf("type: %d, msg: %s\n", ev->type_, ev->msg_.c_str());
                 break;
             }
             Py_XDECREF(py_ev);
+        }
+        else {
+            printf("Python Exception occured, quit Client %d\n", self->RoleId());
+            self->Quit();
+            return;
         }
     }
 }

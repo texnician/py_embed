@@ -59,7 +59,6 @@ int HWDBResult::GetResult() const
 }
 
 HWDBRecordSet::HWDBRecordSet()
-    : cursor_(NULL)
 {}
 
 bool HWDBRecordSet::IsEmpty() const
@@ -211,7 +210,11 @@ HWSQLCmd& HWSQLCmd::Reset()
 std::string HWSQLCmd::DumpSQL(const HWDBResult& result, const char* name, int level) const
 {
     #define MAX_SQL_LEN 2048
+#if defined(_MSC_VER)
     #define SNPRINTF _snprintf
+#else
+    #define SNPRINTF snprintf
+#endif
 
     int idx = 0;
     char buf[MAX_SQL_LEN];

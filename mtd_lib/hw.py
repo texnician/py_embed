@@ -1,11 +1,32 @@
 print('aaaaaaaaaa')
+
+    # while 1:
+    #     ev = cli.Receive()
+    #     print('ev', ev)
+    #     if ev.type_ == 0:
+    #         break
+    #     else:
+    #         print('++++++++msg_id: {0}, msg: {1}'.format(ev.type_, ev.msg_))
+    
 #import rpdb2; rpdb2.start_embedded_debugger('123')
-print('aaaaaaaaaa')
 from mtd_lib import *
-print('aaaaaaaaaa')
 import stackless
 import Queue
 
+def PyLoop(cli):
+    MainLoop(cli)
+    while not cli.IsQuit():
+        try:
+            ev = cli.Receive()
+            if ev.type_ == 0:
+                print(cli.RoleId(), 'Quit')
+                cli.Quit()
+            else:
+                print('++++++++msg_id: {0}, msg: {1}'.format(ev.type_, ev.msg_))
+        except Exception as e:
+            print e
+            break
+    
 class TestObj(object):
     pass
 
@@ -62,7 +83,7 @@ class TestThread(threading.Thread):
         print('Do something useless')
         return 'done'
 
-t = TestThread(100000)
+#t = TestThread(100000)
 
 # def ping():
 #     print('ping')
@@ -107,30 +128,33 @@ class QueuedChannel(stackless.channel):
             self.msgq.put(d)
 
     def receive(self):
-        print('qsize:', self.msgq.qsize())
         if self.msgq.qsize() > 0:
             return self.msgq.get()
         else:
-            print('block receive')
             ev = stackless.channel.receive(self)
-            print('received', ev)
             return ev
 
-cli_channel = QueuedChannel()
+ch1 = QueuedChannel()
 
-cli = StacklessClient(10, cli_channel)
-print('setuptasklet')
+cli = StacklessClient(10, ch1)
 cli.SetupTasklet()
-print('setuptasklet')
-def MakeEvent():
+
+ch2 = QueuedChannel()
+cli2 = StacklessClient(11, ch2)
+cli2.SetupTasklet()
+
+ch3 = QueuedChannel()
+
+#cli3 = stackless.tasklet(PyLoop)(None)
+
+def MakeEvent(tp, msg):
     ev = CliEvent()
-    ev.msg_ = "hello"
-    ev.type_ = 1
+    ev.msg_ = msg
+    ev.type_ = tp
     return ev
 
 if __name__ == '__main__':
-    #stackless.tasklet(cli_channel.send)(MakeEvent())
-    #stackless.run()
-
-
-
+    ch1.send(MakeEvent(1, 'hello'))
+    ch2.send(MakeEvent(1, 'world'))
+    ch1.send(MakeEvent(0, 'py'))
+    stackless.run()
