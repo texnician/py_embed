@@ -11,3 +11,7 @@
 *.user
 *.opensdf
 *.pyc
+*.o
+*.so
+*.a
+*/.deps/
