@@ -1,6 +1,6 @@
 CXX ?= g++
 
-CXXFLAGS := -g -Wall -pipe -std=c++0x
+CXXFLAGS := -g -Wall -pipe -std=c++0x -O3 -DNDEBUG
 
 GUILE := guile-2.0
 GUILE_CFLAGS := $(shell pkg-config --cflags guile-2.0)

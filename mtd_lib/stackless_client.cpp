@@ -108,13 +108,12 @@ void MainLoop(StacklessClient* self)
                 printf("Normal quit %d\n", self->RoleId());
                 break;
             default:
-                printf("type: %d, msg: %s\n", ev->type_, ev->msg_.c_str());
+                // printf("%d type: %d, msg: %s\n", self->RoleId(), ev->type_, ev->msg_.c_str());
                 break;
             }
             Py_XDECREF(py_ev);
         }
         else {
-            printf("Python Exception occured, quit Client %d\n", self->RoleId());
             self->Quit();
             return;
         }

@@ -15,3 +15,4 @@
 *.so
 *.a
 */.deps/
+*.pickle

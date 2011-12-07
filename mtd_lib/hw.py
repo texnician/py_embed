@@ -12,17 +12,21 @@ print('aaaaaaaaaa')
 from mtd_lib import *
 import stackless
 import Queue
+import pickle
+
+pickle_ch = stackless.channel()
 
 def PyLoop(cli):
-    MainLoop(cli)
     while not cli.IsQuit():
         try:
             ev = cli.Receive()
+            pickle_ch.send(cli.RoleId())
             if ev.type_ == 0:
                 print(cli.RoleId(), 'Quit')
                 cli.Quit()
             else:
-                print('++++++++msg_id: {0}, msg: {1}'.format(ev.type_, ev.msg_))
+                print('{0} type: {1}, msg: {2}'.format(cli.RoleId(), ev.type_, ev.msg_))
+                pass
         except Exception as e:
             print e
             break
@@ -147,14 +151,71 @@ ch3 = QueuedChannel()
 
 #cli3 = stackless.tasklet(PyLoop)(None)
 
+class PyClient(object):
+    def __init__(self, roleid, ch):
+        self.roleid = roleid
+        self.ch = ch
+        self.is_quit = False
+        self.task = None
+        
+    def SetupTasklet(self):
+        self.task = stackless.tasklet(PyLoop)
+        self.task(self)
+
+    def IsQuit(self):
+        return self.is_quit
+
+    def Receive(self):
+        return self.ch.receive()
+
+    def Send(self, ev):
+        self.ch.send(ev)
+    
+    def Quit(self):
+        self.is_quit = True
+
+    def RoleId(self):
+        return self.roleid
+
+class PyEvent(object):
+    def __init__(self):
+        self.type_ = 0
+        self.msg_ = None
+        
 def MakeEvent(tp, msg):
     ev = CliEvent()
     ev.msg_ = msg
     ev.type_ = tp
     return ev
 
-if __name__ == '__main__':
-    ch1.send(MakeEvent(1, 'hello'))
-    ch2.send(MakeEvent(1, 'world'))
-    ch1.send(MakeEvent(0, 'py'))
+ch_list = []
+ts_list = []
+def InitClient(n):
+    for i in xrange(n):
+        ch = QueuedChannel()
+        ch_list.append(ch)
+        ts = PyClient(i, ch)
+        ts.SetupTasklet()
+        ts_list.append(ts)
+num = 3000
+InitClient(num)
+
+def PickleClient():
+    roleid = pickle_ch.receive()
+    pickle.dump(ts_list[roleid].task, file('role{0}.pickle'.format(roleid), 'wb'))
+    
+stackless.tasklet(PickleClient)()
+
+def RunIt():
     stackless.run()
+    from random import randint
+    ev_num = 1
+    EV = MakeEvent(1, 'hello')
+    for i in xrange(ev_num):
+        idx = randint(0, num-1)
+        ch_list[idx].send(EV)
+        
+if __name__ == '__main__':
+    from timeit import Timer
+    t = Timer("RunIt()", "from __main__ import RunIt")
+    print t.timeit(1)
