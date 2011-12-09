@@ -20,12 +20,11 @@ def PyLoop(cli):
     while not cli.IsQuit():
         try:
             ev = cli.Receive()
-            pickle_ch.send(cli.RoleId())
             if ev.type_ == 0:
                 print(cli.RoleId(), 'Quit')
                 cli.Quit()
             else:
-                print('{0} type: {1}, msg: {2}'.format(cli.RoleId(), ev.type_, ev.msg_))
+                #print('{0} type: {1}, msg: {2}'.format(cli.RoleId(), ev.type_, ev.msg_))
                 pass
         except Exception as e:
             print e
@@ -197,22 +196,23 @@ def InitClient(n):
         ts = PyClient(i, ch)
         ts.SetupTasklet()
         ts_list.append(ts)
-num = 3000
+num = 5000
 InitClient(num)
 
 def PickleClient():
     roleid = pickle_ch.receive()
     pickle.dump(ts_list[roleid].task, file('role{0}.pickle'.format(roleid), 'wb'))
     
-stackless.tasklet(PickleClient)()
+# stackless.tasklet(PickleClient)()
 
 def RunIt():
     stackless.run()
     from random import randint
-    ev_num = 1
+    ev_num = 1000000
     EV = MakeEvent(1, 'hello')
     for i in xrange(ev_num):
-        idx = randint(0, num-1)
+        idx = i % num
+        #idx = randint(0, num-1)
         ch_list[idx].send(EV)
         
 if __name__ == '__main__':

@@ -8,17 +8,27 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		DebugPYD|Win32 = DebugPYD|Win32
 		Release|Win32 = Release|Win32
+		ReleasePYD|Win32 = ReleasePYD|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Debug|Win32.ActiveCfg = Debug|Win32
 		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Debug|Win32.Build.0 = Debug|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.DebugPYD|Win32.ActiveCfg = DebugPYD|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.DebugPYD|Win32.Build.0 = DebugPYD|Win32
 		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Release|Win32.ActiveCfg = Release|Win32
 		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.Release|Win32.Build.0 = Release|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.ReleasePYD|Win32.ActiveCfg = ReleasePYD|Win32
+		{3038D09A-AEF7-4BE1-84C0-78F429A97180}.ReleasePYD|Win32.Build.0 = ReleasePYD|Win32
 		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Debug|Win32.Build.0 = Debug|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.DebugPYD|Win32.ActiveCfg = DebugPYD|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.DebugPYD|Win32.Build.0 = DebugPYD|Win32
 		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Release|Win32.ActiveCfg = Release|Win32
 		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.Release|Win32.Build.0 = Release|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.ReleasePYD|Win32.ActiveCfg = ReleasePYD|Win32
+		{EE927036-DD3F-4FCF-88A3-5F276A7C069C}.ReleasePYD|Win32.Build.0 = ReleasePYD|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

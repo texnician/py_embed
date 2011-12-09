@@ -1,8 +1,6 @@
 print('aaaaaaaaaa')
 #import rpdb2; rpdb2.start_embedded_debugger('123')
-print('aaaaaaaaaa')
 from mtd_lib import *
-print('aaaaaaaaaa')
 import stackless
 import Queue
 
@@ -107,13 +105,10 @@ class QueuedChannel(stackless.channel):
             self.msgq.put(d)
 
     def receive(self):
-        print('qsize:', self.msgq.qsize())
         if self.msgq.qsize() > 0:
             return self.msgq.get()
         else:
-            print('block receive')
             ev = stackless.channel.receive(self)
-            print('received', ev)
             return ev
 
 cli_channel = QueuedChannel()
@@ -128,9 +123,12 @@ def MakeEvent():
     ev.type_ = 1
     return ev
 
+stackless.tasklet(cli_channel.send)(MakeEvent())
+stackless.run()
+
 if __name__ == '__main__':
-    #stackless.tasklet(cli_channel.send)(MakeEvent())
-    #stackless.run()
+    pass
+
 
 
 

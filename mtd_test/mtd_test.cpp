@@ -98,7 +98,6 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
     Py_DECREF(pHw);
 
     /* Release the thread. No Python API allowed beyond this point. */
-    PyGILState_Release(gstate);
 	return 0;
 }
 
