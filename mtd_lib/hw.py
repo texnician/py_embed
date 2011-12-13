@@ -193,7 +193,7 @@ def InitClient(n):
     for i in xrange(n):
         ch = QueuedChannel()
         ch_list.append(ch)
-        ts = PyClient(i, ch)
+        ts = StacklessClient(i, ch)
         ts.SetupTasklet()
         ts_list.append(ts)
 num = 5000
@@ -211,7 +211,7 @@ def RunIt():
     ev_num = 1000000
     EV = MakeEvent(1, 'hello')
     for i in xrange(ev_num):
-        idx = i % num
+        idx = i % 1
         #idx = randint(0, num-1)
         ch_list[idx].send(EV)
         
