@@ -1,11 +1,42 @@
 print('aaaaaaaaaa')
+
+    # while 1:
+    #     ev = cli.Receive()
+    #     print('ev', ev)
+    #     if ev.type_ == 0:
+    #         break
+    #     else:
+    #         print('++++++++msg_id: {0}, msg: {1}'.format(ev.type_, ev.msg_))
+    
 #import rpdb2; rpdb2.start_embedded_debugger('123')
 from mtd_lib import *
 import stackless
 import Queue
+import pickle
+
+pickle_ch = stackless.channel()
+
+def PyLoop(cli):
+    while not cli.IsQuit():
+        try:
+            ev = cli.Receive()
+            if ev.type_ == 0:
+                print(cli.RoleId(), 'Quit')
+                cli.Quit()
+            else:
+                #print('{0} type: {1}, msg: {2}'.format(cli.RoleId(), ev.type_, ev.msg_))
+                pass
+        except Exception as e:
+            print e
+            break
 
 class TestObj(object):
-    pass
+    def Foo(self):
+        print('Foo callllllllllllllllllllllllllllllllllllllllllllllllllll')
+        return 3
+
+def MakeTestObj():
+    return TestObj()
 
 class PyCallback(ScriptSkillCallback):
     def __init__(self):
@@ -111,24 +142,85 @@ class QueuedChannel(stackless.channel):
             ev = stackless.channel.receive(self)
             return ev
 
-cli_channel = QueuedChannel()
+ch1 = QueuedChannel()
 
-cli = StacklessClient(10, cli_channel)
-print('setuptasklet')
+cli = StacklessClient(10, ch1)
 cli.SetupTasklet()
-print('setuptasklet')
-def MakeEvent():
+
+ch2 = QueuedChannel()
+cli2 = StacklessClient(11, ch2)
+cli2.SetupTasklet()
+
+ch3 = QueuedChannel()
+
+#cli3 = stackless.tasklet(PyLoop)(None)
+
+class PyClient(object):
+    def __init__(self, roleid, ch):
+        self.roleid = roleid
+        self.ch = ch
+        self.is_quit = False
+        self.task = None
+        
+    def SetupTasklet(self):
+        self.task = stackless.tasklet(PyLoop)
+        self.task(self)
+
+    def IsQuit(self):
+        return self.is_quit
+
+    def Receive(self):
+        return self.ch.receive()
+
+    def Send(self, ev):
+        self.ch.send(ev)
+    
+    def Quit(self):
+        self.is_quit = True
+
+    def RoleId(self):
+        return self.roleid
+
+class PyEvent(object):
+    def __init__(self):
+        self.type_ = 0
+        self.msg_ = None
+        
+def MakeEvent(tp, msg):
     ev = CliEvent()
-    ev.msg_ = "hello"
-    ev.type_ = 1
+    ev.msg_ = msg
+    ev.type_ = tp
     return ev
 
-stackless.tasklet(cli_channel.send)(MakeEvent())
-stackless.run()
+ch_list = []
+ts_list = []
+def InitClient(n):
+    for i in xrange(n):
+        ch = QueuedChannel()
+        ch_list.append(ch)
+        ts = StacklessClient(i, ch)
+        ts.SetupTasklet()
+        ts_list.append(ts)
+num = 5000
+InitClient(num)
 
+def PickleClient():
+    roleid = pickle_ch.receive()
+    pickle.dump(ts_list[roleid].task, file('role{0}.pickle'.format(roleid), 'wb'))
+    
+# stackless.tasklet(PickleClient)()
+
+def RunIt():
+    stackless.run()
+    from random import randint
+    ev_num = 1000000
+    EV = MakeEvent(1, 'hello')
+    for i in xrange(ev_num):
+        idx = i % 1
+        #idx = randint(0, num-1)
+        ch_list[idx].send(EV)
+        
 if __name__ == '__main__':
-    pass
-
-
-
-
+    from timeit import Timer
+    t = Timer("RunIt()", "from __main__ import RunIt")
+    print t.timeit(1)

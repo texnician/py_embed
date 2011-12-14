@@ -29,9 +29,13 @@ def PyLoop(cli):
         except Exception as e:
             print e
             break
-    
+
 class TestObj(object):
-    pass
+    def Foo(self):
+        print('Foo call')
+
+def MakeTestObj():
+    return TestObj()
 
 class PyCallback(ScriptSkillCallback):
     def __init__(self):

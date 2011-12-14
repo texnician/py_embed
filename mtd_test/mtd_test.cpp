@@ -30,8 +30,15 @@ public:
 
 #include <windows.h>
 bool py_init = false;
+bool allow_exit = false;
+
+PyObject *test_obj;
+
 DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
+    Py_Initialize();
+    init_mtd_lib();
+    
     PyObject *pName, *pModule, *pDict, *pFunc;
 
     int64_t a = 111111;
@@ -51,13 +58,11 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 		std::vector<std::string> v1 = GetStringVec();
 	}
 
-	
-	py_init = true;
-
-    Sleep(5000);
-
-    PyGILState_STATE gstate;
-    gstate = PyGILState_Ensure();
+    PyObject* module = PyImport_ImportModule("hw");
+    PyObject* func = PyObject_GetAttrString(module, "MakeTestObj");
+    test_obj = PyObject_CallFunction(func, "()");
+    Py_XDECREF(module);
+    Py_XDECREF(func);
 
 	// SWIG_init();
     
@@ -97,14 +102,19 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
     Py_DECREF(pModule);
     Py_DECREF(pHw);
 
-    /* Release the thread. No Python API allowed beyond this point. */
+    py_init = true;
+    
+    while (!allow_exit) {
+        PyRun_SimpleString("pass");
+    }
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    PyGILState_Release(gstate);
 	return 0;
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-    Py_Initialize();
-    init_mtd_lib();
     HANDLE hThread;
     DWORD dwThreadId;
     
@@ -119,17 +129,35 @@ int _tmain(int argc, _TCHAR* argv[])
 
     while (!py_init) {
 	}
-    PyGILState_STATE gstate;
-    gstate = PyGILState_Ensure();
-    if (Py_IsInitialized()) {
-        /* Perform Python actions here. */
-        PyRun_SimpleString("print('i am main thread!')");
-        /* evaluate result or handle exception */
+
+    {
+        // PyGILState_STATE gstate;
+        // gstate = PyGILState_Ensure();
+        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
+        if (!ret) {
+            PyErr_Print();
+        }
+        long n = PyInt_AsLong(ret);
+        printf("nnnnnnnnnnn %d", n);
+        // PyGILState_Release(gstate);
     }
-    PyGILState_Release(gstate);
+    
+    allow_exit = true;
     
     while(::WaitForSingleObject (hThread, 20) != WAIT_OBJECT_0) {}
     ::CloseHandle (hThread);
+
+    {
+        PyGILState_STATE gstate;
+        gstate = PyGILState_Ensure();
+        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
+        if (!ret) {
+            PyErr_Print();
+        }
+        long n = PyInt_AsLong(ret);
+        printf("nnnnnnnnnnn %d", n);
+        PyGILState_Release(gstate);
+    }
     // gstate = PyGILState_Ensure();
     // Py_Finalize();
     return 0;
