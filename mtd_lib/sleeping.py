@@ -59,7 +59,7 @@ def wake(t):
                 # maybe sleeping
                 channel = sleeping_tasklet[-1]
                 sleeping_tasklet[-1] = _REMOVED
-                if channel is not _REMOVED:
+                if channel is not _REMOVED and channel.balance < 0:
                     channel.send(None)
             else:
                 return
