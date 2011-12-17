@@ -6,6 +6,10 @@
 */ipch/*
 */Debug/*
 */Release/*
+*/DebugPYD/*
+*/ReleasePYD/*
+*.pyd
+*.dll
 *.sdf
 *.suo
 *.user

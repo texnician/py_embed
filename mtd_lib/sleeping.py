@@ -1,5 +1,5 @@
-
-
+#!/usr/bin/env stackless2.6
+# -*- coding: utf-8 -*-
 """
 Author: Alejandro Castillo <pyalec@gmail.com>
 
