@@ -1,5 +1,5 @@
-
-
+#!/usr/bin/env stackless2.6
+# -*- coding: utf-8 -*-
 """
 Author: Alejandro Castillo <pyalec@gmail.com>
 
@@ -59,7 +59,7 @@ def wake(t):
                 # maybe sleeping
                 channel = sleeping_tasklet[-1]
                 sleeping_tasklet[-1] = _REMOVED
-                if channel is not _REMOVED:
+                if channel is not _REMOVED and channel.balance < 0:
                     channel.send(None)
             else:
                 return
@@ -114,9 +114,15 @@ class StTimer(object):
                 n += 1
                 func(*args, **kwargs)
         self.tasklet = stackless.tasklet(_fn)()
+        self.tasklet.run()
 
-    def Cancel():
-        self.tasklet.kill()
+    def Cancel(self):
+        with _lock:
+            try:
+                sleeping_tasklets_dict[self.tasklet][-1] = _REMOVED
+            except KeyError:
+                pass
+            self.tasklet.kill()
 
 _test_cont = 0
 
@@ -125,10 +131,14 @@ def _cb():
     _test_cont += 1
 
 def Run1(n):
+    tt = []
     for i in xrange(n):
         t = threading.Timer(1.0, _cb)
+        tt.append(t)
         t.start()
-
+    for t in tt:
+        t.join()
+        
 def Run2(n):
     global _test_cont
     for i in xrange(n):
