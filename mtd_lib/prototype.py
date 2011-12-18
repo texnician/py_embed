@@ -58,8 +58,8 @@ class EventManager(object):
         ev_count = 0
         while 1:
             ev = self.ch.receive()
-            for l in self.listener_map[ev.tp]:
-                l.OnEvent(ev)
+            for cb in self.listener_map[ev.tp]:
+                cb(ev)
             ev_count += 1
             if ev_count >= 1000:
                 print(ev_count)
@@ -93,7 +93,7 @@ def AddEventListener(type, listenr):
 
 class System(object):
     def __init__(self):
-        AddEventListener('move', self)
+        AddEventListener('move', self.OnEvent)
         pass
 
     def OnMessage(self):
@@ -103,6 +103,53 @@ class System(object):
         # do sth
         GameEvent('move').Emit()
 
+def CalcQuestMark(player, npc):
+    marks = []
+    for q in npc.QuestSeq():
+        if q.Id() in PlayerHistoryQuestSet(player):
+            marks.append('*')
+        elif q.MinLevel() - player.Level() < 5:
+            marks.append('-!')
+        elif abs(q.MinLevel() - player.Level()) < 3:
+            marks.append('!')
+        elif q.Id() in PlayerDoneQuestSet(player):
+            marks.append('?')
+        elif q.Id() in PlayerInProgressQuestSet(player):
+            marks.append('-?')
+        else:
+            marks.append('*')
+    return min(marks)
+
+def CalcConversation(player, npc):
+    
+    pass
+
+class Quest(object):
+    def __init__(self):
+        AddEventListener('GET_ITEM', self.OnGetItem)
+        AddEventListener('CONVERSATION', self.OnConversation)
+        self.is_complete = False
+        self.node_list = []
+        self.cur_node = None
+        
+    def OnGetItem(self, ev):
+        pass
+
+    def OnConversation(self, ev):
+        pass
+
+class QuestSystem(object):
+    def __init__(self):
+        AddEventListener('GET_ITEM', self.OnGetItem)
+        pass
+
+    def OnGetItem(self, ev):
+        roleid = ev.src.roleid
+        itemid = ev.itemid
+        itemtype = ev.itemtype
+        GetRoleQuestList
+        pass
+        
 stackless.tasklet(EVENT_MANAGER.Run)()
 sys = System()
 

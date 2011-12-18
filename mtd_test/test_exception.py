@@ -2,6 +2,7 @@ import stackless
 import traceback
 
 yieldChannel = stackless.channel()
+yieldChannel.preference = 1
 
 def BeNice():
     yieldChannel.receive()
@@ -28,11 +29,9 @@ class TestErr(Exception):
     pass
 
 def TestException():
-    try:
-        while 1:
-            print fx
-    except Exception:
-        traceback.print_exc()
+    while 1:
+        print fx
+        BeNice()
 
 t1 = stackless.tasklet(TestException)()
 

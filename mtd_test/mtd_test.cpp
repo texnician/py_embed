@@ -142,9 +142,6 @@ int _tmain(int argc, _TCHAR* argv[])
         &dwThreadId);
     printf(" Now another thread has been created. ID = %d \n", dwThreadId);
 
-    while (!py_init) {
-	}
-
     allow_exit = true;
     
     while(::WaitForSingleObject (hThread, 20) != WAIT_OBJECT_0) {}
