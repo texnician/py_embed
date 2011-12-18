@@ -34,10 +34,27 @@ bool allow_exit = false;
 
 PyObject *test_obj;
 
+void TestException()
+{
+    PyObject *module, *scheduler;
+    module = PyImport_ImportModule("test_exception");
+    scheduler = PyObject_GetAttrString(module, "ScheduleTasklets");
+    while (true) {
+        PyObject *ret = PyObject_CallFunction(scheduler, "()");
+        if (!ret) {
+            PyErr_Print();
+        }
+        Py_XDECREF(ret);
+        Sleep(1);
+    }
+}
+
 DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
     Py_Initialize();
     init_mtd_lib();
+
+    TestException();
     
     PyObject *pName, *pModule, *pDict, *pFunc;
 
@@ -107,9 +124,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
     while (!allow_exit) {
         PyRun_SimpleString("pass");
     }
-    PyGILState_STATE gstate;
-    gstate = PyGILState_Ensure();
-    PyGILState_Release(gstate);
+
 	return 0;
 }
 
@@ -130,35 +145,10 @@ int _tmain(int argc, _TCHAR* argv[])
     while (!py_init) {
 	}
 
-    {
-        // PyGILState_STATE gstate;
-        // gstate = PyGILState_Ensure();
-        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
-        if (!ret) {
-            PyErr_Print();
-        }
-        long n = PyInt_AsLong(ret);
-        printf("nnnnnnnnnnn %d", n);
-        // PyGILState_Release(gstate);
-    }
-    
     allow_exit = true;
     
     while(::WaitForSingleObject (hThread, 20) != WAIT_OBJECT_0) {}
     ::CloseHandle (hThread);
 
-    {
-        PyGILState_STATE gstate;
-        gstate = PyGILState_Ensure();
-        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
-        if (!ret) {
-            PyErr_Print();
-        }
-        long n = PyInt_AsLong(ret);
-        printf("nnnnnnnnnnn %d", n);
-        PyGILState_Release(gstate);
-    }
-    // gstate = PyGILState_Ensure();
-    // Py_Finalize();
     return 0;
 }

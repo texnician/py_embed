@@ -145,11 +145,11 @@ class QueuedChannel(stackless.channel):
 ch1 = QueuedChannel()
 
 cli = StacklessClient(10, ch1)
-cli.SetupTasklet()
+#cli.SetupTasklet()
 
 ch2 = QueuedChannel()
 cli2 = StacklessClient(11, ch2)
-cli2.SetupTasklet()
+#cli2.SetupTasklet()
 
 ch3 = QueuedChannel()
 
@@ -202,7 +202,7 @@ def InitClient(n):
         ts.SetupTasklet()
         ts_list.append(ts)
 num = 5000
-InitClient(num)
+#InitClient(num)
 
 def PickleClient():
     roleid = pickle_ch.receive()
@@ -219,7 +219,7 @@ def RunIt():
         idx = i % 1
         #idx = randint(0, num-1)
         ch_list[idx].send(EV)
-        
+
 if __name__ == '__main__':
     from timeit import Timer
     t = Timer("RunIt()", "from __main__ import RunIt")

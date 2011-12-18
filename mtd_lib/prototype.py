@@ -106,6 +106,14 @@ class System(object):
 stackless.tasklet(EVENT_MANAGER.Run)()
 sys = System()
 
+class TestErr(Exception):
+    pass
+
+def TestException():
+    while 1:
+        print fx
+        
+
 if __name__ == '__main__':
     e = GameEvent('move')
     e.Emit()
