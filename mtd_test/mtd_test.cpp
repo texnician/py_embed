@@ -43,6 +43,7 @@ void TestException()
         PyObject *ret = PyObject_CallFunction(scheduler, "()");
         if (!ret) {
             PyErr_Print();
+            break;
         }
         Py_XDECREF(ret);
         Sleep(1);
@@ -51,13 +52,22 @@ void TestException()
 
 DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
+    printf("thread state %s initialized\n", PyEval_ThreadsInitialized() ? "is" : "is not");
+    
+    PyEval_InitThreads();
+
+    printf("thread state %s initialized\n", PyEval_ThreadsInitialized() ? "is" : "is not");
+    
     Py_Initialize();
     init_mtd_lib();
 
+    py_init = true;
+    
     TestException();
     
     PyObject *pName, *pModule, *pDict, *pFunc;
 
+    // Py_BEGIN_ALLOW_THREADS
     int64_t a = 111111;
 
     auto x = strtoul("4294967295", (char **)NULL, 10);
@@ -65,6 +75,10 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 	{
 		std::vector<int> vci(GetConstIntVec());
 	}
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    PyRun_SimpleString("print('blueblueblue')");
+    PyGILState_Release(gstate);
 	{
 		std::vector<int> vi(GetIntVec());
 	}
@@ -74,7 +88,8 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 	{
 		std::vector<std::string> v1 = GetStringVec();
 	}
-
+    // Py_END_ALLOW_THREADS
+        
     PyObject* module = PyImport_ImportModule("hw");
     PyObject* func = PyObject_GetAttrString(module, "MakeTestObj");
     test_obj = PyObject_CallFunction(func, "()");
@@ -119,8 +134,6 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
     Py_DECREF(pModule);
     Py_DECREF(pHw);
 
-    py_init = true;
-    
     while (!allow_exit) {
         PyRun_SimpleString("pass");
     }
@@ -141,6 +154,15 @@ int _tmain(int argc, _TCHAR* argv[])
         0,
         &dwThreadId);
     printf(" Now another thread has been created. ID = %d \n", dwThreadId);
+
+    while (!py_init) {
+        Sleep(1);
+    }
+
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    PyRun_SimpleString("print('i am main thread!')");
+    PyGILState_Release(gstate);
 
     allow_exit = true;
     
