@@ -67,26 +67,34 @@ def wake(t):
             return
     
 # this function runs in another thread
-def manager():
+def _manager():
     while True:
         with _lock:
             while len(sleeping_tasklets) and sleeping_tasklets[0][0] <= time.time():
                 endTime, _, channel = sleeping_tasklets[0]
-                heapq.heappop(sleeping_tasklets)
                 if channel is not _REMOVED:
                     channel.send(None)
+                heapq.heappop(sleeping_tasklets)
 
             if len(sleeping_tasklets):
                 _cond.wait(sleeping_tasklets[0][0] - time.time())
             else:
                 _cond.wait()
 
+def ManagerMain():
+    t = stackless.tasklet(_manager)()
+    while t.alive:
+        stackless.run()
+    
 if not manager_running:
-    manager_t = threading.Thread(target=manager)
+    manager_t = threading.Thread(target=_manager)
     manager_t.daemon = True
     manager_t.start()
     manager_running = True
 
+def Foo():
+    print('ok')
+    
 def ticker():
     while True:
         sleep(0.2)
@@ -101,10 +109,6 @@ def timer(n=1):
         print i,
         sys.stdout.flush()
 
-# Do FOO N secs later
-# Do FOO every N secs
-# Do FOO every N secs atmost K times
-
 class StTimer(object):
     def __init__(self, interval, times, func, *args, **kwargs):
         def _fn():
@@ -116,13 +120,19 @@ class StTimer(object):
         self.tasklet = stackless.tasklet(_fn)()
         self.tasklet.run()
 
+    def Alive(self):
+        return self.tasklet.alive
+
+    def Waiting(self):
+        return self.tasklet.blocked
+
     def Cancel(self):
         with _lock:
             try:
                 sleeping_tasklets_dict[self.tasklet][-1] = _REMOVED
             except KeyError:
                 pass
-        self.tasklet.kill()
+            self.tasklet.kill()
 
 _test_cont = 0
 
@@ -140,11 +150,11 @@ def Run1(n):
         t.join()
         
 def Run2(n):
-    global _test_cont
     for i in xrange(n):
         t = StTimer(1.0, 1, _cb)
-    while _test_cont < n or stackless.getruncount() > 1:
+    while len(sleeping_tasklets_dict):
         stackless.run()
+        time.sleep(0.01)
         
 if __name__ == "__main__":
     from timeit import Timer

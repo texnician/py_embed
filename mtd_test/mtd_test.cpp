@@ -34,13 +34,40 @@ bool allow_exit = false;
 
 PyObject *test_obj;
 
+void TestException()
+{
+    PyObject *module, *scheduler;
+    module = PyImport_ImportModule("test_exception");
+    scheduler = PyObject_GetAttrString(module, "ScheduleTasklets");
+    while (true) {
+        PyObject *ret = PyObject_CallFunction(scheduler, "()");
+        if (!ret) {
+            PyErr_Print();
+            break;
+        }
+        Py_XDECREF(ret);
+        Sleep(1);
+    }
+}
+
 DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
+    printf("thread state %s initialized\n", PyEval_ThreadsInitialized() ? "is" : "is not");
+    
+    PyEval_InitThreads();
+
+    printf("thread state %s initialized\n", PyEval_ThreadsInitialized() ? "is" : "is not");
+    
     Py_Initialize();
     init_mtd_lib();
+
+    py_init = true;
+    
+    TestException();
     
     PyObject *pName, *pModule, *pDict, *pFunc;
 
+    // Py_BEGIN_ALLOW_THREADS
     int64_t a = 111111;
 
     auto x = strtoul("4294967295", (char **)NULL, 10);
@@ -48,6 +75,10 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 	{
 		std::vector<int> vci(GetConstIntVec());
 	}
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    PyRun_SimpleString("print('blueblueblue')");
+    PyGILState_Release(gstate);
 	{
 		std::vector<int> vi(GetIntVec());
 	}
@@ -57,7 +88,8 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 	{
 		std::vector<std::string> v1 = GetStringVec();
 	}
-
+    // Py_END_ALLOW_THREADS
+        
     PyObject* module = PyImport_ImportModule("hw");
     PyObject* func = PyObject_GetAttrString(module, "MakeTestObj");
     test_obj = PyObject_CallFunction(func, "()");
@@ -102,14 +134,10 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
     Py_DECREF(pModule);
     Py_DECREF(pHw);
 
-    py_init = true;
-    
     while (!allow_exit) {
         PyRun_SimpleString("pass");
     }
-    PyGILState_STATE gstate;
-    gstate = PyGILState_Ensure();
-    PyGILState_Release(gstate);
+
 	return 0;
 }
 
@@ -128,37 +156,18 @@ int _tmain(int argc, _TCHAR* argv[])
     printf(" Now another thread has been created. ID = %d \n", dwThreadId);
 
     while (!py_init) {
-	}
-
-    {
-        // PyGILState_STATE gstate;
-        // gstate = PyGILState_Ensure();
-        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
-        if (!ret) {
-            PyErr_Print();
-        }
-        long n = PyInt_AsLong(ret);
-        printf("nnnnnnnnnnn %d", n);
-        // PyGILState_Release(gstate);
+        Sleep(1);
     }
-    
+
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+    PyRun_SimpleString("print('i am main thread!')");
+    PyGILState_Release(gstate);
+
     allow_exit = true;
     
     while(::WaitForSingleObject (hThread, 20) != WAIT_OBJECT_0) {}
     ::CloseHandle (hThread);
 
-    {
-        PyGILState_STATE gstate;
-        gstate = PyGILState_Ensure();
-        PyObject *ret = PyObject_CallMethod(test_obj, "Foo", "()");
-        if (!ret) {
-            PyErr_Print();
-        }
-        long n = PyInt_AsLong(ret);
-        printf("nnnnnnnnnnn %d", n);
-        PyGILState_Release(gstate);
-    }
-    // gstate = PyGILState_Ensure();
-    // Py_Finalize();
     return 0;
 }
