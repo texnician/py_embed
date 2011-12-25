@@ -1,5 +1,5 @@
- #!/usr/bin/python
- # -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # set VS90COMNTOOLS=C:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools
 
@@ -33,6 +33,8 @@ class User(Base):
 
 Session = sessionmaker(bind=engine)
 session = Session()
+from sqlalchemy.orm import scoped_session
+LocalSession = scoped_session(sessionmaker(bind=engine))
 
 def InitData():
     Base.metadata.create_all(engine)
